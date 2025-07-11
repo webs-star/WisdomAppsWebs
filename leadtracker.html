@@ -108,6 +108,28 @@
 
 <script>
   const firebaseURL = "https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads.json";
+  const now = Date.now();
+  const oneWeek = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+
+  // 🔁 Auto-delete old leads (older than 7 days)
+  function cleanupOldLeads() {
+    fetch(firebaseURL)
+      .then(res => res.json())
+      .then(data => {
+        if (!data) return;
+
+        Object.entries(data).forEach(([id, lead]) => {
+          const leadTime = lead.timestamp * 1000;
+          if (now - leadTime > oneWeek) {
+            fetch(`https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads/${id}.json`, {
+              method: "DELETE"
+            }).then(() => {
+              console.log(`🧹 Deleted old lead: ${id}`);
+            });
+          }
+        });
+      });
+  }
 
   function loadLeads() {
     fetch(firebaseURL)
@@ -120,12 +142,12 @@
         const timeFilter = document.getElementById('timeFilter').value;
         const now = Date.now();
 
-        const entries = Object.entries(data || {}).reverse(); // most recent first
+        const entries = Object.entries(data || {}).reverse();
 
         const filtered = entries.filter(([id, lead]) => {
           if (!lead.title || !lead.timestamp) return false;
           const leadTime = lead.timestamp * 1000;
-          const timeDiff = (now - leadTime) / (1000 * 60); // in minutes
+          const timeDiff = (now - leadTime) / (1000 * 60);
 
           if (timeFilter === "1h" && timeDiff > 60) return false;
           if (timeFilter === "3h" && timeDiff > 180) return false;
@@ -165,7 +187,8 @@
   document.getElementById("searchInput").addEventListener("input", loadLeads);
   document.getElementById("timeFilter").addEventListener("change", loadLeads);
 
-  // Initial load + refresh every 60 seconds
+  // 🟢 Start: cleanup + load + refresh every 60 seconds
+  cleanupOldLeads();
   loadLeads();
   setInterval(loadLeads, 60000);
 </script>
