@@ -93,7 +93,6 @@
 
 <h1>🔥 Lead Tracker Dashboard</h1>
 
-
 <div id="controls">
   <input type="text" id="searchInput" placeholder="Search (e.g., math, plot, website)">
   
@@ -110,17 +109,14 @@
     <option value="Reddit">Reddit</option>
     <option value="Twitter">Twitter</option>
     <option value="LinkedIn">LinkedIn</option>
+    <option value="Telegram">Telegram</option> <!-- ✅ Added Telegram -->
   </select>
 </div>
-
-
-
 
 <div id="leads">Loading leads...</div>
 
 <script>
- 
- const firebaseURL = "https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads.json";
+const firebaseURL = "https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads.json";
 const oneWeek = 7 * 24 * 60 * 60 * 1000;
 
 function cleanupOldLeads() {
@@ -182,11 +178,13 @@ function loadLeads() {
 
         const timeStr = new Date(lead.timestamp * 1000).toLocaleString();
 
+        const badgeColor = lead.source === "Telegram" ? "#29b6f6" : "#1976d2";
+
         div.innerHTML = `
           <h3>${lead.title}</h3>
           <a href="${lead.url}" target="_blank">🔗 View Post</a>
           <small>📍 Source: ${lead.source || "N/A"} | Subreddit: ${lead.subreddit || "N/A"} | 🕒 ${timeStr}</small>
-          <div class="category-badge">${lead.category || "Uncategorized"}</div>
+          <div class="category-badge" style="background:${badgeColor}">${lead.category || "Uncategorized"}</div>
         `;
         container.appendChild(div);
       });
@@ -205,7 +203,7 @@ cleanupOldLeads();
 setInterval(loadLeads, 60000);
 setInterval(cleanupOldLeads, 300000);
 
-// ✅ LinkedIn RSS Feeds
+// ✅ LinkedIn RSS
 const linkedinFeeds = [
   { url: "https://rss.app/feeds/2yKsSuqI0g7l2HvW.xml", category: "web_dev" },
   { url: "https://rss.app/feeds/R0VKuXSaEABEvdJR.xml", category: "tutoring" },
@@ -261,10 +259,6 @@ function fetchLinkedInRSS() {
 
 fetchLinkedInRSS();
 setInterval(fetchLinkedInRSS, 10 * 60 * 1000);
-
-
-
-
 </script>
 
 </body>
