@@ -93,8 +93,10 @@
 
 <h1>🔥 Lead Tracker Dashboard</h1>
 
+
 <div id="controls">
   <input type="text" id="searchInput" placeholder="Search (e.g., math, plot, website)">
+  
   <select id="timeFilter">
     <option value="all">Show All</option>
     <option value="1h">Last 1 Hour</option>
@@ -102,95 +104,167 @@
     <option value="12h">Last 12 Hours</option>
     <option value="24h">Last 24 Hours</option>
   </select>
+
+  <select id="sourceFilter">
+    <option value="all">All Sources</option>
+    <option value="Reddit">Reddit</option>
+    <option value="Twitter">Twitter</option>
+    <option value="LinkedIn">LinkedIn</option>
+  </select>
 </div>
+
+
+
 
 <div id="leads">Loading leads...</div>
 
 <script>
-  const firebaseURL = "https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads.json";
-  const now = Date.now();
-  const oneWeek = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+ 
+ const firebaseURL = "https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads.json";
+const oneWeek = 7 * 24 * 60 * 60 * 1000;
 
-  // 🔁 Auto-delete old leads (older than 7 days)
-  function cleanupOldLeads() {
-    fetch(firebaseURL)
-      .then(res => res.json())
-      .then(data => {
-        if (!data) return;
-
-        Object.entries(data).forEach(([id, lead]) => {
-          const leadTime = lead.timestamp * 1000;
-          if (now - leadTime > oneWeek) {
-            fetch(`https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads/${id}.json`, {
-              method: "DELETE"
-            }).then(() => {
-              console.log(`🧹 Deleted old lead: ${id}`);
-            });
-          }
-        });
-      });
-  }
-
-  function loadLeads() {
-    fetch(firebaseURL)
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById('leads');
-        container.innerHTML = '';
-
-        const search = document.getElementById('searchInput').value.toLowerCase();
-        const timeFilter = document.getElementById('timeFilter').value;
-        const now = Date.now();
-
-        const entries = Object.entries(data || {}).reverse();
-
-        const filtered = entries.filter(([id, lead]) => {
-          if (!lead.title || !lead.timestamp) return false;
-          const leadTime = lead.timestamp * 1000;
-          const timeDiff = (now - leadTime) / (1000 * 60);
-
-          if (timeFilter === "1h" && timeDiff > 60) return false;
-          if (timeFilter === "3h" && timeDiff > 180) return false;
-          if (timeFilter === "12h" && timeDiff > 720) return false;
-          if (timeFilter === "24h" && timeDiff > 1440) return false;
-
-          const content = (lead.title + " " + (lead.subreddit || "") + " " + (lead.category || "")).toLowerCase();
-          return content.includes(search);
-        });
-
-        if (filtered.length === 0) {
-          container.innerHTML = "<p>No matching leads found.</p>";
-          return;
+function cleanupOldLeads() {
+  fetch(firebaseURL)
+    .then(res => res.json())
+    .then(data => {
+      if (!data) return;
+      const now = Date.now();
+      Object.entries(data).forEach(([id, lead]) => {
+        if (lead.timestamp && (now - lead.timestamp * 1000 > oneWeek)) {
+          fetch(`https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads/${id}.json`, {
+            method: "DELETE"
+          }).then(() => {
+            console.log(`🧹 Deleted lead older than 7 days: ${id}`);
+          });
         }
-
-        filtered.forEach(([id, lead]) => {
-          const div = document.createElement("div");
-          div.className = "lead";
-
-          const timeStr = new Date(lead.timestamp * 1000).toLocaleString();
-
-          div.innerHTML = `
-            <h3>${lead.title}</h3>
-            <a href="${lead.url}" target="_blank">🔗 View Post</a>
-            <small>📍 Subreddit: ${lead.subreddit || "N/A"} | 🕒 ${timeStr}</small>
-            <div class="category-badge">${lead.category || "Uncategorized"}</div>
-          `;
-
-          container.appendChild(div);
-        });
-      })
-      .catch(err => {
-        document.getElementById('leads').innerHTML = `<p>Error loading leads: ${err}</p>`;
       });
-  }
+    })
+    .catch(err => console.error("Cleanup error:", err));
+}
 
-  document.getElementById("searchInput").addEventListener("input", loadLeads);
-  document.getElementById("timeFilter").addEventListener("change", loadLeads);
+function loadLeads() {
+  fetch(firebaseURL)
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById('leads');
+      container.innerHTML = '';
 
-  // 🟢 Start: cleanup + load + refresh every 60 seconds
-  cleanupOldLeads();
-  loadLeads();
-  setInterval(loadLeads, 60000);
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      const timeFilter = document.getElementById('timeFilter').value;
+      const sourceFilter = document.getElementById('sourceFilter').value;
+      const now = Date.now();
+
+      const entries = Object.entries(data || {}).reverse();
+
+      const filtered = entries.filter(([id, lead]) => {
+        if (!lead.title || !lead.timestamp) return false;
+        const leadTime = lead.timestamp * 1000;
+        const timeDiff = (now - leadTime) / (1000 * 60);
+
+        if (timeFilter === "1h" && timeDiff > 60) return false;
+        if (timeFilter === "3h" && timeDiff > 180) return false;
+        if (timeFilter === "12h" && timeDiff > 720) return false;
+        if (timeFilter === "24h" && timeDiff > 1440) return false;
+        if (sourceFilter !== "all" && lead.source !== sourceFilter) return false;
+
+        const content = (lead.title + " " + (lead.subreddit || "") + " " + (lead.category || "") + " " + (lead.source || "")).toLowerCase();
+        return content.includes(search);
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = "<p>No matching leads found.</p>";
+        return;
+      }
+
+      filtered.forEach(([id, lead]) => {
+        const div = document.createElement("div");
+        div.className = "lead";
+
+        const timeStr = new Date(lead.timestamp * 1000).toLocaleString();
+
+        div.innerHTML = `
+          <h3>${lead.title}</h3>
+          <a href="${lead.url}" target="_blank">🔗 View Post</a>
+          <small>📍 Source: ${lead.source || "N/A"} | Subreddit: ${lead.subreddit || "N/A"} | 🕒 ${timeStr}</small>
+          <div class="category-badge">${lead.category || "Uncategorized"}</div>
+        `;
+        container.appendChild(div);
+      });
+    })
+    .catch(err => {
+      document.getElementById('leads').innerHTML = `<p>Error loading leads: ${err}</p>`;
+    });
+}
+
+// 🔁 Realtime update
+document.getElementById("searchInput").addEventListener("input", loadLeads);
+document.getElementById("timeFilter").addEventListener("change", loadLeads);
+document.getElementById("sourceFilter").addEventListener("change", loadLeads);
+loadLeads();
+cleanupOldLeads();
+setInterval(loadLeads, 60000);
+setInterval(cleanupOldLeads, 300000);
+
+// ✅ LinkedIn RSS Feeds
+const linkedinFeeds = [
+  { url: "https://rss.app/feeds/2yKsSuqI0g7l2HvW.xml", category: "web_dev" },
+  { url: "https://rss.app/feeds/R0VKuXSaEABEvdJR.xml", category: "tutoring" },
+  { url: "https://rss.app/feeds/joofBrc3RV3y4hx3.xml", category: "tutoring" }
+];
+
+function fetchLinkedInRSS() {
+  const now = Date.now();
+  const oneDay = 24 * 60 * 60 * 1000;
+
+  linkedinFeeds.forEach(feed => {
+    const api = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
+
+    fetch(api)
+      .then(res => res.json())
+      .then(json => {
+        if (json.items && Array.isArray(json.items)) {
+          json.items.forEach(item => {
+            const pubTime = new Date(item.pubDate).getTime();
+            if (now - pubTime > oneDay) return;
+
+            const postId = btoa(item.link).replace(/=+$/, "");
+            const lead = {
+              title: item.title,
+              url: item.link,
+              timestamp: pubTime / 1000,
+              category: feed.category,
+              source: "LinkedIn"
+            };
+
+            const leadURL = `https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads/${postId}.json`;
+
+            fetch(leadURL)
+              .then(res => res.json())
+              .then(existing => {
+                if (!existing) {
+                  fetch(leadURL, {
+                    method: "PUT",
+                    body: JSON.stringify(lead)
+                  }).then(() => {
+                    console.log("✅ LinkedIn lead added:", lead.title);
+                    new Audio("https://notificationsounds.com/notification-sounds/eventually-590/download/mp3").play();
+                    alert("🆕 New LinkedIn Job: " + lead.title);
+                  });
+                }
+              });
+          });
+        }
+      })
+      .catch(err => console.error("❌ LinkedIn RSS Error:", err));
+  });
+}
+
+fetchLinkedInRSS();
+setInterval(fetchLinkedInRSS, 10 * 60 * 1000);
+
+
+
+
 </script>
 
 </body>
