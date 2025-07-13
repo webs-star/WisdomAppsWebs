@@ -126,17 +126,15 @@ function cleanupOldLeads() {
       if (!data) return;
       const now = Date.now();
       Object.entries(data).forEach(([source, group]) => {
-        if (typeof group === "object") {
-          Object.entries(group).forEach(([id, lead]) => {
-            if (lead.timestamp && (now - lead.timestamp * 1000 > oneWeek)) {
-              fetch(`https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads/${source}/${id}.json`, {
-                method: "DELETE"
-              }).then(() => {
-                console.log(`🧹 Deleted old lead: ${source}/${id}`);
-              });
-            }
-          });
-        }
+        Object.entries(group).forEach(([id, lead]) => {
+          if (lead.timestamp && (now - lead.timestamp * 1000 > oneWeek)) {
+            fetch(`https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads/${source}/${id}.json`, {
+              method: "DELETE"
+            }).then(() => {
+              console.log(`🧹 Deleted old ${source} lead: ${id}`);
+            });
+          }
+        });
       });
     })
     .catch(err => console.error("Cleanup error:", err));
@@ -154,22 +152,21 @@ function loadLeads() {
       const sourceFilter = document.getElementById('sourceFilter').value;
       const now = Date.now();
 
-      // Flatten nested leads
-      let entries = [];
+      const entries = [];
+
       Object.entries(data || {}).forEach(([source, group]) => {
         if (typeof group === "object") {
           Object.entries(group).forEach(([id, lead]) => {
-            entries.push([`${source}_${id}`, { ...lead, source }]);
+            entries.push([`${source}_${id}`, lead]); // ✅ KEEP original lead.source
           });
         }
       });
 
-      // Reverse and filter
-      entries = entries.reverse().filter(([id, lead]) => {
+      const filtered = entries.filter(([id, lead]) => {
         if (!lead.title || !lead.timestamp) return false;
 
         const leadTime = lead.timestamp * 1000;
-        const timeDiff = (now - leadTime) / (1000 * 60);
+        const timeDiff = (now - leadTime) / (1000 * 60); // minutes
 
         if (timeFilter === "1h" && timeDiff > 60) return false;
         if (timeFilter === "3h" && timeDiff > 180) return false;
@@ -181,16 +178,17 @@ function loadLeads() {
         return content.includes(search);
       });
 
-      if (entries.length === 0) {
+      if (filtered.length === 0) {
         container.innerHTML = "<p>No matching leads found.</p>";
         return;
       }
 
-      entries.forEach(([id, lead]) => {
+      filtered.forEach(([id, lead]) => {
         const div = document.createElement("div");
         div.className = "lead";
 
         const timeStr = new Date(lead.timestamp * 1000).toLocaleString();
+
         const badgeColor = lead.source === "Telegram" ? "#29b6f6" : "#1976d2";
 
         div.innerHTML = `
@@ -207,72 +205,13 @@ function loadLeads() {
     });
 }
 
-// Auto load & update
 document.getElementById("searchInput").addEventListener("input", loadLeads);
 document.getElementById("timeFilter").addEventListener("change", loadLeads);
 document.getElementById("sourceFilter").addEventListener("change", loadLeads);
-
 loadLeads();
 cleanupOldLeads();
 setInterval(loadLeads, 60000);
 setInterval(cleanupOldLeads, 300000);
-
-// ✅ Fetch LinkedIn RSS
-const linkedinFeeds = [
-  { url: "https://rss.app/feeds/2yKsSuqI0g7l2HvW.xml", category: "web_dev" },
-  { url: "https://rss.app/feeds/R0VKuXSaEABEvdJR.xml", category: "tutoring" },
-  { url: "https://rss.app/feeds/joofBrc3RV3y4hx3.xml", category: "tutoring" }
-];
-
-function fetchLinkedInRSS() {
-  const now = Date.now();
-  const oneDay = 24 * 60 * 60 * 1000;
-
-  linkedinFeeds.forEach(feed => {
-    const api = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
-
-    fetch(api)
-      .then(res => res.json())
-      .then(json => {
-        if (json.items && Array.isArray(json.items)) {
-          json.items.forEach(item => {
-            const pubTime = new Date(item.pubDate).getTime();
-            if (now - pubTime > oneDay) return;
-
-            const postId = btoa(item.link).replace(/=+$/, "");
-            const lead = {
-              title: item.title,
-              url: item.link,
-              timestamp: pubTime / 1000,
-              category: feed.category,
-              source: "LinkedIn"
-            };
-
-            const leadURL = `https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads/linkedin/${postId}.json`;
-
-            fetch(leadURL)
-              .then(res => res.json())
-              .then(existing => {
-                if (!existing) {
-                  fetch(leadURL, {
-                    method: "PUT",
-                    body: JSON.stringify(lead)
-                  }).then(() => {
-                    console.log("✅ LinkedIn lead added:", lead.title);
-                    new Audio("https://notificationsounds.com/notification-sounds/eventually-590/download/mp3").play();
-                    alert("🆕 New LinkedIn Job: " + lead.title);
-                  });
-                }
-              });
-          });
-        }
-      })
-      .catch(err => console.error("❌ LinkedIn RSS Error:", err));
-  });
-}
-
-fetchLinkedInRSS();
-setInterval(fetchLinkedInRSS, 10 * 60 * 1000);
 </script>
 
 </body>
