@@ -109,7 +109,7 @@
     <option value="Reddit">Reddit</option>
     <option value="Twitter">Twitter</option>
     <option value="LinkedIn">LinkedIn</option>
-    <option value="Telegram">Telegram</option> <!-- ✅ Added Telegram -->
+    <option value="Telegram">Telegram</option>
   </select>
 </div>
 
@@ -125,14 +125,16 @@ function cleanupOldLeads() {
     .then(data => {
       if (!data) return;
       const now = Date.now();
-      Object.entries(data).forEach(([id, lead]) => {
-        if (lead.timestamp && (now - lead.timestamp * 1000 > oneWeek)) {
-          fetch(`https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads/${id}.json`, {
-            method: "DELETE"
-          }).then(() => {
-            console.log(`🧹 Deleted lead older than 7 days: ${id}`);
-          });
-        }
+      Object.entries(data).forEach(([source, leadsById]) => {
+        Object.entries(leadsById).forEach(([id, lead]) => {
+          if (lead.timestamp && (now - lead.timestamp * 1000 > oneWeek)) {
+            fetch(`https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads/${source}/${id}.json`, {
+              method: "DELETE"
+            }).then(() => {
+              console.log(`🧹 Deleted old lead: ${id}`);
+            });
+          }
+        });
       });
     })
     .catch(err => console.error("Cleanup error:", err));
@@ -150,19 +152,19 @@ function loadLeads() {
       const sourceFilter = document.getElementById('sourceFilter').value;
       const now = Date.now();
 
-      const entries = Object.entries(data || {}).reverse();
+      const entries = Object.entries(data || {}).flatMap(([source, leadsById]) => {
+        return Object.entries(leadsById || {}).map(([id, lead]) => [id, { ...lead, source }]);
+      }).reverse();
 
       const filtered = entries.filter(([id, lead]) => {
         if (!lead.title || !lead.timestamp) return false;
         const leadTime = lead.timestamp * 1000;
         const timeDiff = (now - leadTime) / (1000 * 60);
-
         if (timeFilter === "1h" && timeDiff > 60) return false;
         if (timeFilter === "3h" && timeDiff > 180) return false;
         if (timeFilter === "12h" && timeDiff > 720) return false;
         if (timeFilter === "24h" && timeDiff > 1440) return false;
         if (sourceFilter !== "all" && lead.source !== sourceFilter) return false;
-
         const content = (lead.title + " " + (lead.subreddit || "") + " " + (lead.category || "") + " " + (lead.source || "")).toLowerCase();
         return content.includes(search);
       });
@@ -175,9 +177,7 @@ function loadLeads() {
       filtered.forEach(([id, lead]) => {
         const div = document.createElement("div");
         div.className = "lead";
-
         const timeStr = new Date(lead.timestamp * 1000).toLocaleString();
-
         const badgeColor = lead.source === "Telegram" ? "#29b6f6" : "#1976d2";
 
         div.innerHTML = `
@@ -194,7 +194,7 @@ function loadLeads() {
     });
 }
 
-// 🔁 Realtime update
+// 🔁 Real-time updates
 document.getElementById("searchInput").addEventListener("input", loadLeads);
 document.getElementById("timeFilter").addEventListener("change", loadLeads);
 document.getElementById("sourceFilter").addEventListener("change", loadLeads);
@@ -234,7 +234,7 @@ function fetchLinkedInRSS() {
               source: "LinkedIn"
             };
 
-            const leadURL = `https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads/${postId}.json`;
+            const leadURL = `https://lead-tracker-a2181-default-rtdb.firebaseio.com/leads/LinkedIn/${postId}.json`;
 
             fetch(leadURL)
               .then(res => res.json())
