@@ -3,198 +3,396 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Affordable Website & App Developers Kenya | Wisdom Apps</title>
+  
+  <title>Wisdom Apps & Web Devs</title>
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Affordable website and Android app development in Kenya. Get a landing page for Ksh 15,000 ($115) or full mobile apps from Ksh 50,000 ($385). We serve schools, NGOs, businesses, and churches." />
-  <meta name="keywords" content="affordable website developers Kenya, app developers Nairobi, web design Kenya, mobile app development, HTML CSS JavaScript, Firebase apps, GitHub Pages, school website, business website Kenya, church website" />
+  <meta name="description" content="Wisdom Apps and Websites Developers create modern, responsive websites and apps using HTML, CSS, JavaScript, Firebase, and GitHub Pages." />
+  <meta name="keywords" content="web developer Kenya, app developer, responsive websites, Firebase, GitHub Pages, mobile apps" />
   <meta name="author" content="Wisdom Apps and Websites Developers" />
+  <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph (OG) Tags for social previews -->
-  <meta property="og:title" content="Wisdom Apps – Affordable Website & App Development in Kenya" />
-  <meta property="og:description" content="Get a landing page for Ksh 15,000 or a mobile app from Ksh 50,000. Ideal for schools, businesses, and NGOs. Mobile-friendly, clean design, and fast delivery." />
-  <meta property="og:image" content="https://webs-star.github.io/WisdomAppsWebs/logo.jpg" />
-  <meta property="og:url" content="https://webs-star.github.io/WisdomAppsWebs/" />
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="Wisdom Apps & Web Developers" />
+  <meta property="og:description" content="We build smart, affordable websites and apps." />
+  <meta property="og:image" content="https://yourdomain.com/assets/logo.jpg" />
+  <meta property="og:url" content="https://yourdomain.com" />
   <meta property="og:type" content="website" />
 
-  <!-- Twitter Card Tags -->
+  <!-- Twitter Card (optional) -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Affordable Web & App Dev in Kenya | Wisdom Apps" />
-  <meta name="twitter:description" content="Websites from Ksh 15,000. Apps from Ksh 50,000. We build for schools, NGOs, businesses, and more!" />
-  <meta name="twitter:image" content="https://webs-star.github.io/WisdomAppsWebs/logo.jpg" />
+  <meta name="twitter:title" content="Wisdom Apps & Web Developers" />
+  <meta name="twitter:description" content="We build smart, affordable websites and apps." />
+  <meta name="twitter:image" content="https://yourdomain.com/assets/logo.jpg" />
 
-  <!-- Link to external Tailwind CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" integrity="sha384-9QfX10o1b+NNjz72MevOExX4l7XWxH0yE7Yg8J4ubRLOqN7YGO1jR78kp0wQLppQ" crossorigin="anonymous">
-
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-  <!-- Preload Fonts -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style">
-
-  <!-- Tailwind Setup -->
+  <!-- Tailwind CSS CDN (ok for dev or GitHub Pages) -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Custom Animations -->
+  <style>
+    .zoom       { animation: zoomIn 1s ease-in-out; }
+    .slide-left { animation: slideLeft 1s ease-in-out; }
+    .slide-up   { animation: slideUp 1s ease-in-out; }
+    .fade       { animation: fadeIn 1s ease-in-out; }
+
+    @keyframes zoomIn     { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    @keyframes slideLeft  { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes slideUp    { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes fadeIn     { from { opacity: 0; } to { opacity: 1; } }
+
+    .project-img {
+      display: none;
+      will-change: transform, opacity;
+    }
+  </style>
 </head>
+
+
 
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-  <!-- Header -->
-  <header class="bg-green-700 text-white p-6 text-center shadow-md">
-    <h1 class="text-3xl font-bold">Wisdom Apps and Websites Developers</h1>
-    <p class="text-sm mt-2">We build smart websites and apps with HTML, CSS, JavaScript & more</p>
-  </header>
-
-  <!-- About -->
-  <section class="max-w-4xl mx-auto p-6">
-    <h2 class="text-2xl font-bold text-green-700 mb-4">About Us</h2>
-    <p>
-      At Wisdom Apps and Websites Developers, we specialize in creating fast, clean, and responsive websites and mobile apps. Our tech stack includes HTML, CSS, JavaScript, and more — hosted on GitHub Pages and Firebase. Whether you're a business, school, or startup, we build smart digital solutions tailored to your needs.
-    </p>
-  </section>
-
-  <!-- Projects -->
-  <section class="max-w-4xl mx-auto p-6">
-    <h2 class="text-2xl font-bold text-green-700 mb-4">Key Projects</h2>
-    <ul class="list-disc list-inside space-y-2">
-      <li>
-        🌍 <strong><a href="https://webs-star.github.io/savinatour.com/" target="_blank" class="text-blue-600 underline" rel="noopener noreferrer">Savina Tour & Travel</a></strong> – A tourism website offering travel services.
-      </li>
-      <li>
-        🏠 <strong><a href="https://webs-star.github.io/realestate.com/realplot" target="_blank" class="text-blue-600 underline" rel="noopener noreferrer">Real Estate Plot Listing</a></strong> – Clean interface for land/property ads.
-      </li>
-      <li>
-        📘 <strong><a href="https://elimuconnect.github.io/ELIMU-CONNECT-/elimu" target="_blank" class="text-blue-600 underline" rel="noopener noreferrer">Elimu Connect Platform</a></strong> – A digital hub for tutoring and smart learning.
-      </li>
-      <li>
-        📱 <strong><a href="https://play.google.com/store/apps/details?id=elimuconnect.tuitioncentre" target="_blank" class="text-blue-600 underline" rel="noopener noreferrer">Elimu Connect Tuition App</a></strong> – Available on Google Play Store.
-      </li>
-    </ul>
-  </section>
-
-  <!-- Skills -->
-  <section class="max-w-4xl mx-auto p-6">
-    <h2 class="text-2xl font-bold text-green-700 mb-4">Tech Skills</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-      <span class="bg-green-100 px-4 py-2 rounded">HTML5</span>
-      <span class="bg-green-100 px-4 py-2 rounded">CSS3</span>
-      <span class="bg-green-100 px-4 py-2 rounded">JavaScript</span>
-      <span class="bg-green-100 px-4 py-2 rounded">GitHub Pages</span>
-      <span class="bg-green-100 px-4 py-2 rounded">Firebase Hosting</span>
-      <span class="bg-green-100 px-4 py-2 rounded">Responsive Design</span>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="max-w-4xl mx-auto p-6">
-    <h2 class="text-2xl font-bold text-green-700 mb-4">Testimonials</h2>
-    <blockquote class="bg-white p-4 shadow rounded mb-4">
-      <p class="italic">“Wisdom Developers built our travel website quickly and professionally. Their work helped boost our online bookings.”</p>
-      <footer class="mt-2 font-semibold">— Mr. Samuel Mwangi Ngunju, MD, Savina Consultancy Tour & Travel Ltd</footer>
-    </blockquote>
-    <blockquote class="bg-white p-4 shadow rounded">
-      <p class="italic">“Their real estate site was clean, fast, and mobile-friendly. We saw an increase in customer calls.”</p>
-      <footer class="mt-2 font-semibold">— Mr Solomon- C.E.O Realplot Connect</footer>
-    </blockquote>
-  </section>
-
-
-
-  <!-- Testimonials -->
-  <section class="max-w-4xl mx-auto p-6">
-    <h2 class="text-2xl font-bold text-green-700 mb-4">Testimonials</h2>
-    <blockquote class="bg-white p-4 shadow rounded mb-4">
-      <p class="italic">“Wisdom Developers built our travel website quickly and professionally. Their work helped boost our online bookings.”</p>
-      <footer class="mt-2 font-semibold">— Mr. Samuel Mwangi Ngunju, MD, Savina Consultancy Tour & Travel Ltd</footer>
-    </blockquote>
-    <blockquote class="bg-white p-4 shadow rounded">
-      <p class="italic">“Their real estate site was clean, fast, and mobile-friendly. We saw an increase in customer calls.”</p>
-      <footer class="mt-2 font-semibold">— Mr Solomon- C.E.O Realplot Connect</footer>
-    </blockquote>
-  </section>
-  
-  
-  
-  
-  
-  <!-- Services -->
-<section class="max-w-4xl mx-auto p-6">
-  
-  <p class="text-xl font-semibold text-blue-600 mt-6 mb-2"><strong>Ready to grow your brand online?</strong> We build affordable, modern, mobile-friendly websites for schools, organizations, and businesses!</p>
-
-  <h3 class="text-xl font-semibold text-green-600 mt-6 mb-2">💰 Website Design Packages</h3>
-  <div class="overflow-x-auto">
-    <table class="min-w-full bg-white rounded shadow text-sm">
-      <thead>
-        <tr class="bg-green-100 text-left">
-          <th class="py-2 px-4">Pages</th>
-          <th class="py-2 px-4">Type</th>
-          <th class="py-2 px-4">Cost (KES)</th>
-          <th class="py-2 px-4">Cost (USD)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td class="py-2 px-4">1 Page</td><td class="py-2 px-4">Simple Landing Page</td><td class="py-2 px-4">10,000</td><td class="py-2 px-4">$77</td></tr>
-        <tr><td class="py-2 px-4">2 Pages</td><td class="py-2 px-4">Basic Website</td><td class="py-2 px-4">18,000</td><td class="py-2 px-4">$138.5</td></tr>
-        <tr><td class="py-2 px-4">3 Pages</td><td class="py-2 px-4">Medium Website</td><td class="py-2 px-4">26,000</td><td class="py-2 px-4">$200</td></tr>
-        <tr><td class="py-2 px-4">4 Pages</td><td class="py-2 px-4">Advanced Website</td><td class="py-2 px-4">33,000</td><td class="py-2 px-4">$254</td></tr>
-        <tr><td class="py-2 px-4">5 Pages</td><td class="py-2 px-4">Complex Website</td><td class="py-2 px-4">40,000</td><td class="py-2 px-4">$308</td></tr>
-         <tr><td class="py-2 px-4">6-7 Pages</td><td class="py-2 px-4">more Complex Website</td><td class="py-2 px-4">50,000</td><td class="py-2 px-4">$385</td></tr>
-      <t/body>
-        <t/body>
-    </table>
+  <!-- Hero Banner -->
+<header class="relative bg-cover bg-center h-[70vh] text-white flex items-center justify-center shadow-lg" style="background-image: url('https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdlYnNpdGUlMjBkZXZlbG9wZXJ8ZW58MHx8MHx8fDA%3D');">
+  <div class="bg-black bg-opacity-60 p-10 rounded-lg text-center" data-aos="zoom-in">
+    <h1 class="text-4xl md:text-5xl font-bold">Wisdom Apps & Websites Developers</h1>
+    <p class="text-lg mt-4">We build stunning websites and Android apps using modern tools</p>
+    <a href="https://wa.me/254769255782" target="_blank" aria-label="Hire Us Now"
+       class="inline-block mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-full transition duration-300">
+      📞 Hire Us Now  
+    </a>
   </div>
+</header>
 
-  <h3 class="text-xl font-semibold text-green-600 mt-6 mb-2">📱 Android App Development-And hosting in google play store </h3>
-  <ul class="list-disc list-inside mb-4">
-    <li>Simple App: <strong>KES 30,000</strong> / <strong>$231</strong></li>
-    <li>more Complex App: <strong>KES 500,000</strong> / <strong>$3,847</strong></li>
-    NB: COST OF AN ANDROID APP RANGES FROM KSH 30,000($231) TO  KSH 500,000($3847) DEPENDING ON COMPLEXITY OF THE APP
-  </ul>
-
-  <h3 class="text-xl font-semibold text-green-600 mt-6 mb-2">🏫 We Create Websites For:</h3>
-  <ul class="list-disc list-inside mb-4">
-    <li>✔ Schools & Colleges</li>
-    <li>✔ Companies & NGOs</li>
-    <li>✔ Online Businesses & Shops</li>
-    <li>✔ Churches & Training Centers</li>
-  </ul>
-
-  <h3 class="text-xl font-semibold text-green-600 mt-6 mb-2">📝 What You Need to Provide:</h3>
-  <ul class="list-disc list-inside mb-4">
-    <li>✅ Institution Name</li>
-    <li>✅ Logo</li>
-    <li>✅ Vision & Mission Statements</li>
-    <li>✅ Motto / Tagline</li>
-    <li>✅ Phone Number(s) and Email</li>
-    <li>✅ Social Media Links</li>
-    <li>✅ Photos / Videos (if any)</li>
-  </ul>
-
-  <p class="text-xl font-semibold text-blue-600 mt-6 mb-2">💡 <strong>Hosting Note:</strong> We offer free website hosting. If you prefer your own domain or premium hosting, the cost depends on the provider you choose.</p>
+<!-- About Section -->
+<section class="max-w-5xl mx-auto p-6" id="about" data-aos="fade-up">
+  <div class="flex items-center space-x-4 mb-4">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753986774/ChatGPT_Image_Jul_31_2025_09_31_40_PM_p4vvg3.png" alt="Wisdom Apps & Websites Developers Logo" class="w-32 h-32 rounded-full shadow-md">
+    <h2 class="text-3xl font-bold text-green-700">About Us</h2>
+  </div>
+  <p class="text-lg">
+    At <strong>Wisdom Apps and Websites Developers</strong>, we specialize in creating fast, clean, and responsive websites and Android apps.
+    We use <span class="text-green-700 font-semibold">HTML</span>, <span class="text-blue-700 font-semibold">CSS</span>, 
+    <span class="text-yellow-500 font-semibold">JavaScript</span>, <span class="text-purple-600 font-semibold">GitHub Pages</span>, 
+    <span class="text-red-500 font-semibold">Firebase</span>, and more.
+  </p>
 </section>
 
+
+  <!-- Project Section with Animation -->
+  
+  
+  <!-- Project Section with Animation -->
+  <section class="max-w-6xl mx-auto p-6" id="projects">
+  <h2 class="text-3xl font-bold text-green-700 mb-6" data-aos="fade-right">Key Projects</h2>
+  <div class="grid md:grid-cols-2 gap-6">
   
   
   
   
   
+ <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300" data-aos="zoom-in">
+  <div class="flex justify-center items-center h-[30rem] relative">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753981833/Screenshot_20250729-224908_lcaid5.png" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md project-img" data-project="savina" style="display: block;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753981833/Screenshot_20250729-224950_atevhm.png" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="savina" style="display: none;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753981833/Screenshot_20250729-225008_dpulgi.png" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="savina" style="display: none;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753981833/Screenshot_20250729-224950_atevhm.png" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="savina" style="display: none;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753981833/Screenshot_20250729-225008_dpulgi.png" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="savina" style="display: none;">
+  </div>
+  <div class="p-4 text-center">
+    <h3 class="text-xl font-semibold text-green-700">🌍 Savina Tour & Travel</h3>
+    <p>Tourism website offering travel services.</p>
+    <a href="https://webs-star.github.io/savinatour.com/" class="text-blue-600 underline">Visit Site</a>
+  </div>
+</div>
 
 
 
-  
+    <!-- Project 2 -->
+  <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300" data-aos="zoom-in">
+  <div class="flex justify-center items-center h-[30rem] relative">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753984195/WhatsApp_Image_2025-07-31_at_8.46.25_PM_jvh24z.jpg" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md project-img" data-project="real" style="display: block;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753984195/WhatsApp_Image_2025-07-31_at_8.46.24_PM_s7pn2z.jpg" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="real" style="display: none;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753984195/WhatsApp_Image_2025-07-31_at_8.46.24_PM_1_ts8hf2.jpg" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="real" style="display: none;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753984195/WhatsApp_Image_2025-07-31_at_8.46.26_PM_eozisi.jpg" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="real" style="display: none;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753984194/WhatsApp_Image_2025-07-31_at_8.46.27_PM_2_dokk60.jpg" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="real" style="display: none;">
+  </div>
+  <div class="p-4 text-center">
+    <h3 class="text-xl font-semibold text-green-700">🏠 Real Estate Plot Listing/property finding</h3>
+    <p>Clean interface for land/property listings and connections.</p>
+    <a href="https://webs-star.github.io/realestate.com/realplot" class="text-blue-600 underline">Visit Site</a>
+  </div>
+</div>
+
+    <!-- Project 3 -->
+   <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300" data-aos="zoom-in">
+  <div class="flex justify-center items-center h-[30rem] relative">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753981836/Screenshot_20250729-225452_x12yl5.png" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md project-img" data-project="elimu" style="display: block;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753981834/Screenshot_20250730-131241_ibo4kz.png" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="elimu" style="display: none;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753984195/WhatsApp_Image_2025-07-31_at_8.46.28_PM_f8wrgh.jpg" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="elimu" style="display: none;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753984194/WhatsApp_Image_2025-07-31_at_8.46.28_PM_1_sejkoc.jpg" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="elimu" style="display: none;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753984194/WhatsApp_Image_2025-07-31_at_8.46.27_PM_1_vrshrg.jpg" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="elimu" style="display: none;">
+  </div>
+  <div class="p-4 text-center">
+    <h3 class="text-xl font-semibold text-green-700">📘 Elimu Connect Platform</h3>
+    <p>Smart tutoring and learning hub.</p>
+    <a href="https://elimuconnect.github.io/ELIMU-CONNECT-/elimu" class="text-blue-600 underline">Visit Platform</a>
+  </div>
+</div>
+
+
+
+    <!-- Project 4 -->
+   <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300" data-aos="zoom-in">
+  <div class="flex justify-center items-center h-[30rem] relative">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753981835/Screenshot_20250730-131017_lunnrq.png" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md project-img" data-project="app" style="display: block;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753981835/Screenshot_20250730-131122_p1jnx8.png" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="app" style="display: none;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753981834/Screenshot_20250730-131045_gr4g63.png" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="app" style="display: none;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753981833/Screenshot_20250730-131331_ueijpl.png" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="app" style="display: none;">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753981833/Screenshot_20250729-225350_hdcfel.png" class="mx-auto rounded-full h-96 w-96 object-cover border-4 border-white shadow-md absolute project-img" data-project="app" style="display: none;">
+  </div>
+  <div class="p-4 text-center">
+    <h3 class="text-xl font-semibold text-green-700">📱 Elimu Connect Tuition App</h3>
+    <p>Available on the Google Play Store.</p>
+    <a href="https://play.google.com/store/apps/details?id=elimuconnect.tuitioncentre" class="text-blue-600 underline">Download App</a>
+  </div>
+</div>
+
+</section>
+
+
+
+<!-- Video Demo (Autoplay, Muted, Responsive) -->
+<section class="max-w-6xl mx-auto p-6" data-aos="fade-up">
+  <h2 class="text-3xl font-bold text-green-700 mb-4">📱 App Demo</h2>
+  <div class="w-full bg-black rounded-lg shadow-lg overflow-hidden">
+    <video
+      src="https://res.cloudinary.com/dwvt4e9o2/video/upload/q_auto,f_auto/screen-20250729-222936_yb2vnr.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      controls
+      class="w-full h-[500px] object-contain"
+    ></video>
+  </div>
+</section>
+
+
+ <!-- Skills Section with Colorful Cards -->
+<section class="max-w-6xl mx-auto p-6" data-aos="fade-up">
+  <h2 class="text-3xl font-bold text-green-700 mb-6 text-center">💻 Tech Skills</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+    <!-- HTML5 -->
+    <div class="bg-orange-100 shadow-lg rounded-xl p-6 text-center transform hover:scale-105 transition">
+      <h3 class="text-xl font-semibold text-orange-700">HTML5</h3>
+      <p class="text-gray-700 mt-2">Semantic structure for modern web apps.</p>
+    </div>
+
+    <!-- CSS3 -->
+    <div class="bg-blue-100 shadow-lg rounded-xl p-6 text-center transform hover:scale-105 transition">
+      <h3 class="text-xl font-semibold text-blue-700">CSS3</h3>
+      <p class="text-gray-700 mt-2">Beautiful styling & layout techniques.</p>
+    </div>
+
+    <!-- JavaScript -->
+    <div class="bg-yellow-100 shadow-lg rounded-xl p-6 text-center transform hover:scale-105 transition">
+      <h3 class="text-xl font-semibold text-yellow-700">JavaScript</h3>
+      <p class="text-gray-700 mt-2">Interactivity and client-side logic.</p>
+    </div>
+
+    <!-- GitHub Pages -->
+    <div class="bg-gray-100 shadow-lg rounded-xl p-6 text-center transform hover:scale-105 transition">
+      <h3 class="text-xl font-semibold text-gray-700">GitHub Pages</h3>
+      <p class="text-gray-700 mt-2">Free and fast web hosting.</p>
+    </div>
+
+    <!-- Firebase -->
+    <div class="bg-red-100 shadow-lg rounded-xl p-6 text-center transform hover:scale-105 transition">
+      <h3 class="text-xl font-semibold text-red-700">Firebase</h3>
+      <p class="text-gray-700 mt-2">Realtime database, auth, hosting.</p>
+    </div>
+
+    <!-- Responsive Design -->
+    <div class="bg-green-100 shadow-lg rounded-xl p-6 text-center transform hover:scale-105 transition">
+      <h3 class="text-xl font-semibold text-green-700">Responsive Design</h3>
+      <p class="text-gray-700 mt-2">Mobile-first, adaptive layouts.</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- Services Section -->
+<!-- Services Section -->
+<section class="max-w-6xl mx-auto p-6" data-aos="fade-up">
+  <h2 class="text-3xl font-bold text-green-700 mb-6 text-center">🚀 Services We Offer</h2>
+
+  <!-- Intro -->
+  <div class="bg-blue-50 text-blue-800 p-6 rounded-lg shadow mb-6 text-lg font-medium leading-relaxed">
+    💡 <strong>Grow your brand online:</strong> We build modern, mobile-friendly, affordable websites and Android apps for schools, organizations, and businesses.
+  </div>
+
+  <!-- Website Packages Table -->
+  <div class="bg-white rounded-lg shadow mb-8 p-6">
+    <h3 class="text-2xl font-semibold text-green-700 mb-4">💰 Website Design Packages</h3>
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm text-left text-gray-700">
+        <thead class="bg-green-100 text-green-800">
+          <tr>
+            <th class="py-3 px-4">Pages</th>
+            <th class="py-3 px-4">Type</th>
+            <th class="py-3 px-4">Cost (KES)</th>
+            <th class="py-3 px-4">Cost (USD)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hover:bg-green-50">
+            <td class="py-3 px-4">1 Page</td>
+            <td class="py-3 px-4">Simple Landing Page</td>
+            <td class="py-3 px-4 text-lg font-bold text-green-800">10,000</td>
+            <td class="py-3 px-4 text-lg font-bold text-blue-800">$77</td>
+          </tr>
+          <tr class="hover:bg-green-50">
+            <td class="py-3 px-4">2 Pages</td>
+            <td class="py-3 px-4">Basic Website</td>
+            <td class="py-3 px-4 text-lg font-bold text-green-800">18,000</td>
+            <td class="py-3 px-4 text-lg font-bold text-blue-800">$138.5</td>
+          </tr>
+          <tr class="hover:bg-green-50">
+            <td class="py-3 px-4">3 Pages</td>
+            <td class="py-3 px-4">Medium Website</td>
+            <td class="py-3 px-4 text-lg font-bold text-green-800">26,000</td>
+            <td class="py-3 px-4 text-lg font-bold text-blue-800">$200</td>
+          </tr>
+          <tr class="hover:bg-green-50">
+            <td class="py-3 px-4">4 Pages</td>
+            <td class="py-3 px-4">Advanced Website</td>
+            <td class="py-3 px-4 text-lg font-bold text-green-800">33,000</td>
+            <td class="py-3 px-4 text-lg font-bold text-blue-800">$254</td>
+          </tr>
+          <tr class="hover:bg-green-50">
+            <td class="py-3 px-4">5 Pages</td>
+            <td class="py-3 px-4">Complex Website</td>
+            <td class="py-3 px-4 text-lg font-bold text-green-800">40,000</td>
+            <td class="py-3 px-4 text-lg font-bold text-blue-800">$308</td>
+          </tr>
+          <tr class="hover:bg-green-50">
+            <td class="py-3 px-4">6–7 Pages</td>
+            <td class="py-3 px-4">More Complex Website</td>
+            <td class="py-3 px-4 text-lg font-bold text-green-800">50,000</td>
+            <td class="py-3 px-4 text-lg font-bold text-blue-800">$385</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Android App Dev -->
+  <div class="bg-white rounded-lg shadow p-6 mb-6">
+    <h3 class="text-2xl font-semibold text-green-700 mb-3">📱 Android App Development</h3>
+    <p class="text-gray-700 mb-3">Includes publishing to Google Play Store:</p>
+    <ul class="list-disc list-inside text-gray-800 font-medium space-y-2">
+      <li>✅ Simple App: <span class="text-xl font-bold text-green-700">KES 30,000</span> / <span class="text-xl font-bold text-blue-700">$231</span></li>
+      <li>✅ More Complex App: <span class="text-xl font-bold text-green-700">KES 500,000</span> / <span class="text-xl font-bold text-blue-700">$3,847</span></li>
+    </ul>
+    <div class="mt-4 text-yellow-900 bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg leading-relaxed">
+      ⚠️ <strong>Note:</strong> App development cost ranges from <span class="text-green-700 font-bold">KES 30,000</span> to <span class="text-green-700 font-bold">KES 500,000</span> depending on app features & complexity.
+    </div>
+  </div>
+
+  <!-- Extra Services -->
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="bg-white rounded-lg shadow p-6">
+      <h3 class="text-xl font-semibold text-green-700 mb-2">🏫 We Create Websites For:</h3>
+      <ul class="list-disc list-inside text-gray-800 font-medium space-y-1">
+        <li>✔ Schools & Colleges</li>
+        <li>✔ Companies & NGOs</li>
+        <li>✔ Online Businesses & Shops</li>
+        <li>✔ Churches & Training Centers</li>
+      </ul>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-6">
+      <h3 class="text-xl font-semibold text-green-700 mb-2">📝 What You Need to Provide:</h3>
+      <ul class="list-disc list-inside text-gray-800 font-medium space-y-1">
+        <li>✅ Institution Name</li>
+        <li>✅ Logo</li>
+        <li>✅ Vision & Mission Statements</li>
+        <li>✅ Motto / Tagline</li>
+        <li>✅ Phone Number(s) and Email</li>
+        <li>✅ Social Media Links</li>
+        <li>✅ Photos / Videos (if any)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hosting Note -->
+  <div class="mt-8 text-blue-800 bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg text-base leading-relaxed">
+    💡 <strong>Hosting Note:</strong> We offer <span class="font-bold">free website hosting</span>. If you prefer your own domain or premium hosting, the cost depends on your hosting provider.
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- Testimonials Section -->
+<section class="max-w-6xl mx-auto p-6" data-aos="fade-up">
+  <h2 class="text-3xl font-bold text-green-700 mb-8 text-center">🌟 What Clients Say</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- Testimonial 1 -->
+    <div class="bg-white rounded-xl shadow-lg p-6 relative hover:shadow-xl transition">
+      <div class="absolute top-4 right-4 text-green-500 text-3xl">“</div>
+      <p class="text-gray-700 italic mb-4">
+        Wisdom Developers built our travel website quickly and professionally. Their work helped boost our online bookings and gave us a digital edge.
+      </p>
+      <footer class="mt-2 font-semibold text-green-800">
+        — Mr. Samuel Mwangi Ngunju<br>
+        <span class="text-sm font-normal text-gray-600">Managing Director, Savina Consultancy Tour & Travel Ltd</span>
+      </footer>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="bg-white rounded-xl shadow-lg p-6 relative hover:shadow-xl transition">
+      <div class="absolute top-4 right-4 text-green-500 text-3xl">“</div>
+      <p class="text-gray-700 italic mb-4">
+        Their real estate site was clean, fast, and mobile-friendly. We saw an immediate increase in customer calls and land listing engagements.
+      </p>
+      <footer class="mt-2 font-semibold text-green-800">
+        — Mr. Solomon<br>
+        <span class="text-sm font-normal text-gray-600">CEO, Realplot Connect</span>
+      </footer>
+    </div>
+
+  </div>
+</section>
+
+
   <!-- Contact -->
-  <section class="max-w-4xl mx-auto p-6 text-center">
-    <h2 class="text-2xl font-bold text-green-700 mb-4">Contact Us</h2>
+  <section id="contact" class="max-w-4xl mx-auto p-6 text-center" data-aos="fade-up">
+    <h2 class="text-2xl font-bold text-green-700 mb-4">Get In Touch</h2>
     <p>Email: <a href="mailto:wamithindegwa1@gmail.com" class="text-blue-600 underline">wamithindegwa1@gmail.com</a></p>
     <p>Phone: <a href="tel:+254769255782" class="text-blue-600 underline">+254 769 255 782</a></p>
-  </section>
-
+   
   <!-- Footer -->
   <footer class="bg-black text-gray-200 text-center py-4 text-sm">
     &copy; <span id="year"></span> Wisdom Apps and Websites Developers. All rights reserved.
   </footer>
-
+</section>
   <!-- WhatsApp Floating Button -->
   <a href="https://wa.me/254769255782" target="_blank" aria-label="Chat on WhatsApp"
      class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg flex items-center space-x-2 transition duration-300">
@@ -204,11 +402,43 @@
     <span class="font-semibold text-sm">Contact Us</span>
   </a>
 
-<script>
-// Update year dynamically
-const year = document.getElementById('year');
-if (year) year.textContent = new Date().getFullYear();
+
+  <script>
+  AOS.init();
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function cycleProjectImages(projectName, animationList) {
+    const images = document.querySelectorAll(`img[data-project="${projectName}"]`);
+    let current = 0;
+
+    if (images.length === 0) return;
+
+    // Show the first image immediately
+    images[current].style.display = "block";
+    images[current].classList.add(animationList[current % animationList.length]);
+
+    setInterval(() => {
+      images[current].style.display = "none";
+      images[current].classList.remove(...animationList);
+
+      current = (current + 1) % images.length;
+
+      images[current].style.display = "block";
+      images[current].classList.add(animationList[current % animationList.length]);
+    }, 3000);
+  }
+
+  // Run after DOM loads
+  document.addEventListener("DOMContentLoaded", () => {
+    cycleProjectImages("savina", ["zoom", "slide-left", "fade", "slide-up", "zoom"]);
+    cycleProjectImages("real", ["slide-left", "fade", "zoom", "slide-up", "fade"]);
+    cycleProjectImages("elimu", ["slide-up", "zoom", "slide-left", "fade", "zoom"]);
+    cycleProjectImages("app", ["fade", "slide-left", "zoom", "slide-up", "fade"]);
+  }); // ← This closing brace was missing
+
 </script>
 
+	
+ 
 </body>
 </html>
