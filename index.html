@@ -51,9 +51,7 @@
     }
 	
 	
-	 html {
-    scroll-behavior: smooth;
-  }
+	
   </style>
 </head>
 
@@ -63,37 +61,38 @@
 
 
 
-
 <!-- Navigation Bar with Colored Links -->
 <nav style="position: sticky; top: 0; z-index: 50; background: linear-gradient(to right, #10b981, #f0fdf4); padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #6ee7b7;">
+
   <!-- Title -->
-  <div style="font-size: 1.2rem; font-weight: bold; color: #065f46;"> Quick Links</div>
+  <div style="font-size: 1.2rem; font-weight: bold; color: #065f46;">
+    Quick Links
+  </div>
 
   <!-- Desktop Links -->
   <ul class="sm:flex hidden space-x-4 text-sm sm:text-base font-medium">
-    <li><a href="#About Section" style="color: #1d4ed8;">About</a></li>
-    <li><a href="#Key Projects" style="color: #dc2626;">Projects</a></li>
-    <li><a href="#Tech & AI Skills" style="color: #10b981;">Tech & AI</a></li>
-    <li><a href="#Services We Offer" style="color: #f59e0b;">Services</a></li>
-    <li><a href="#Testimonials" style="color: #9333ea;">Testimonials</a></li>
+    <li><a href="#about" style="color: #1d4ed8;">About</a></li>
+    <li><a href="#projects" style="color: #dc2626;">Projects</a></li>
+    <li><a href="#skills" style="color: #10b981;">Tech & AI</a></li>
+    <li><a href="#services" style="color: #f59e0b;">Services</a></li>
+    <li><a href="#testimonials" style="color: #9333ea;">Testimonials</a></li>
   </ul>
 
   <!-- Mobile Dropdown Menu -->
-  <div class="sm:hidden relative group">
-    <button style="font-size: 1.5rem; background: none; border: none; cursor: pointer;">⋮</button>
-    <div style="display: none; position: absolute; right: 0; margin-top: 8px; width: 180px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" class="group-hover:block">
-      <a href="#About Section" style="display: block; padding: 8px 16px; color: #1d4ed8; text-decoration: none;">About</a>
-      <a href="#Key Projects" style="display: block; padding: 8px 16px; color: #dc2626; text-decoration: none;">Projects</a>
-      <a href="#Tech & AI Skills" style="display: block; padding: 8px 16px; color: #10b981; text-decoration: none;">Tech & AI</a>
-      <a href="#Services We Offer" style="display: block; padding: 8px 16px; color: #f59e0b; text-decoration: none;">Services</a>
-      <a href="#Testimonials" style="display: block; padding: 8px 16px; color: #9333ea; text-decoration: none;">Testimonials</a>
+  <div class="sm:hidden relative">
+    <button id="mobile-menu-toggle"
+            style="font-size: 1.5rem; background: none; border: none; cursor: pointer;">⋮</button>
+
+    <div id="mobile-menu"
+         style="display: none; position: absolute; right: 0; margin-top: 8px; width: 180px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 100;">
+      <a href="#about" style="display: block; padding: 8px 16px; color: #1d4ed8; text-decoration: none;">About</a>
+      <a href="#projects" style="display: block; padding: 8px 16px; color: #dc2626; text-decoration: none;">Projects</a>
+      <a href="#skills" style="display: block; padding: 8px 16px; color: #10b981; text-decoration: none;">Tech & AI</a>
+      <a href="#services" style="display: block; padding: 8px 16px; color: #f59e0b; text-decoration: none;">Services</a>
+      <a href="#testimonials" style="display: block; padding: 8px 16px; color: #9333ea; text-decoration: none;">Testimonials</a>
     </div>
   </div>
 </nav>
-
-
-
-
 
 
 
@@ -124,7 +123,7 @@
 
 	
 <!-- About Section -->
-<section class="max-w-5xl mx-auto p-6" id="About Section" data-aos="fade-up">
+<section class="max-w-5xl mx-auto p-6" id="about" data-aos="fade-up">
   <div class="flex items-center space-x-4 mb-4">
     <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753986774/ChatGPT_Image_Jul_31_2025_09_31_40_PM_p4vvg3.png" alt="Wisdom Apps & Websites Developers Logo" class="w-32 h-32 rounded-full shadow-md">
     <h2 class="text-3xl font-bold text-green-700">About Us</h2>
@@ -142,7 +141,7 @@
   
   
   <!-- Project Section with Animation -->
-  <section class="max-w-6xl mx-auto p-6" id="Key Projects">
+  <section class="max-w-6xl mx-auto p-6" id="projects">
 
   <h2 class="text-3xl font-bold text-green-700 mb-6" data-aos="fade-right">Key Projects</h2>
   <div class="grid md:grid-cols-2 gap-6">
@@ -240,7 +239,7 @@
 
 
  <!-- Skills Section with Colorful Cards -->
-<section class="max-w-6xl mx-auto p-6" id="Tech & AI Skills" data-aos="fade-up">
+<section class="max-w-6xl mx-auto p-6" id="skills" data-aos="fade-up">
   <h2 class="text-3xl font-bold text-green-700 mb-6 text-center">💻 Tech & AI Skills</h2>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -346,7 +345,7 @@
 
 <!-- Services Section -->
 <!-- Services Section -->
-<section class="max-w-6xl mx-auto p-6" id="Services We Offer" data-aos="fade-up">
+<section class="max-w-6xl mx-auto p-6" id="services" data-aos="fade-up">
   <h2 class="text-3xl font-bold text-green-700 mb-6 text-center">🚀 Services We Offer</h2>
 
   <!-- Intro -->
@@ -532,7 +531,7 @@
 
 
 <!-- Testimonials Section -->
-<section class="max-w-6xl mx-auto p-6" id="Testimonials" data-aos="fade-up">
+<section class="max-w-6xl mx-auto p-6" id="testimonials" data-aos="fade-up">
   <h2 class="text-3xl font-bold text-green-700 mb-8 text-center">🌟 What Clients Say</h2>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -584,41 +583,62 @@
     </svg>
     <span class="font-semibold text-sm">Contact Us</span>
   </a>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // AOS init
+    if (typeof AOS !== "undefined") {
+      AOS.init();
+    }
 
+    // Set current year if element exists
+    const yearElement = document.getElementById("year");
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
 
-  <script>
-  AOS.init();
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  function cycleProjectImages(projectName, animationList) {
-    const images = document.querySelectorAll(`img[data-project="${projectName}"]`);
-    let current = 0;
-
-    if (images.length === 0) return;
-
-    // Show the first image immediately
-    images[current].style.display = "block";
-    images[current].classList.add(animationList[current % animationList.length]);
-
-    setInterval(() => {
-      images[current].style.display = "none";
-      images[current].classList.remove(...animationList);
-
-      current = (current + 1) % images.length;
+    // Project image cycling logic
+    function cycleProjectImages(projectName, animationList) {
+      const images = document.querySelectorAll(`img[data-project="${projectName}"]`);
+      let current = 0;
+      if (images.length === 0) return;
 
       images[current].style.display = "block";
       images[current].classList.add(animationList[current % animationList.length]);
-    }, 3000);
-  }
 
-  // Run after DOM loads
-  document.addEventListener("DOMContentLoaded", () => {
+      setInterval(() => {
+        images[current].style.display = "none";
+        images[current].classList.remove(...animationList);
+        current = (current + 1) % images.length;
+        images[current].style.display = "block";
+        images[current].classList.add(animationList[current % animationList.length]);
+      }, 3000);
+    }
+
+    // Mobile dropdown toggle
+    const toggleButton = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+
+    if (toggleButton && menu) {
+      toggleButton.addEventListener('click', () => {
+        const isVisible = menu.style.display === 'block';
+        menu.style.display = isVisible ? 'none' : 'block';
+      });
+
+      // Hide dropdown when a link is clicked
+      const links = menu.querySelectorAll('a');
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.style.display = 'none';
+        });
+      });
+    }
+
+    // Start image animations
     cycleProjectImages("savina", ["zoom", "slide-left", "fade", "slide-up", "zoom"]);
     cycleProjectImages("real", ["slide-left", "fade", "zoom", "slide-up", "fade"]);
     cycleProjectImages("elimu", ["slide-up", "zoom", "slide-left", "fade", "zoom"]);
     cycleProjectImages("app", ["fade", "slide-left", "zoom", "slide-up", "fade"]);
-  }); // ← This closing brace was missing
-
+  });
 </script>
 
 	
