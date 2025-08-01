@@ -49,12 +49,56 @@
       display: none;
       will-change: transform, opacity;
     }
+	
+	
+	 html {
+    scroll-behavior: smooth;
+  }
   </style>
 </head>
 
 
 
 <body class="bg-gray-50 text-gray-800 font-sans">
+
+
+
+
+<!-- Navigation Bar with Colored Links -->
+<nav style="position: sticky; top: 0; z-index: 50; background: linear-gradient(to right, #10b981, #f0fdf4); padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #6ee7b7;">
+  <!-- Title -->
+  <div style="font-size: 1.2rem; font-weight: bold; color: #065f46;"> Quick Links</div>
+
+  <!-- Desktop Links -->
+  <ul class="sm:flex hidden space-x-4 text-sm sm:text-base font-medium">
+    <li><a href="#About Section" style="color: #1d4ed8;">About</a></li>
+    <li><a href="#Key Projects" style="color: #dc2626;">Projects</a></li>
+    <li><a href="#Tech & AI Skills" style="color: #10b981;">Tech & AI</a></li>
+    <li><a href="#Services We Offer" style="color: #f59e0b;">Services</a></li>
+    <li><a href="#Testimonials" style="color: #9333ea;">Testimonials</a></li>
+  </ul>
+
+  <!-- Mobile Dropdown Menu -->
+  <div class="sm:hidden relative group">
+    <button style="font-size: 1.5rem; background: none; border: none; cursor: pointer;">⋮</button>
+    <div style="display: none; position: absolute; right: 0; margin-top: 8px; width: 180px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" class="group-hover:block">
+      <a href="#About Section" style="display: block; padding: 8px 16px; color: #1d4ed8; text-decoration: none;">About</a>
+      <a href="#Key Projects" style="display: block; padding: 8px 16px; color: #dc2626; text-decoration: none;">Projects</a>
+      <a href="#Tech & AI Skills" style="display: block; padding: 8px 16px; color: #10b981; text-decoration: none;">Tech & AI</a>
+      <a href="#Services We Offer" style="display: block; padding: 8px 16px; color: #f59e0b; text-decoration: none;">Services</a>
+      <a href="#Testimonials" style="display: block; padding: 8px 16px; color: #9333ea; text-decoration: none;">Testimonials</a>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
 
 <!-- Hero Banner with Circular Background -->
 <header class="relative flex items-center justify-center min-h-[60vh] sm:min-h-[70vh] bg-black bg-opacity-10 overflow-hidden">
@@ -80,7 +124,7 @@
 
 	
 <!-- About Section -->
-<section class="max-w-5xl mx-auto p-6" id="about" data-aos="fade-up">
+<section class="max-w-5xl mx-auto p-6" id="About Section" data-aos="fade-up">
   <div class="flex items-center space-x-4 mb-4">
     <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753986774/ChatGPT_Image_Jul_31_2025_09_31_40_PM_p4vvg3.png" alt="Wisdom Apps & Websites Developers Logo" class="w-32 h-32 rounded-full shadow-md">
     <h2 class="text-3xl font-bold text-green-700">About Us</h2>
@@ -98,7 +142,8 @@
   
   
   <!-- Project Section with Animation -->
-  <section class="max-w-6xl mx-auto p-6" id="projects">
+  <section class="max-w-6xl mx-auto p-6" id="Key Projects">
+
   <h2 class="text-3xl font-bold text-green-700 mb-6" data-aos="fade-right">Key Projects</h2>
   <div class="grid md:grid-cols-2 gap-6">
   
@@ -195,7 +240,7 @@
 
 
  <!-- Skills Section with Colorful Cards -->
-<section class="max-w-6xl mx-auto p-6" data-aos="fade-up">
+<section class="max-w-6xl mx-auto p-6" id="Tech & AI Skills" data-aos="fade-up">
   <h2 class="text-3xl font-bold text-green-700 mb-6 text-center">💻 Tech & AI Skills</h2>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -301,7 +346,7 @@
 
 <!-- Services Section -->
 <!-- Services Section -->
-<section class="max-w-6xl mx-auto p-6" data-aos="fade-up">
+<section class="max-w-6xl mx-auto p-6" id="Services We Offer" data-aos="fade-up">
   <h2 class="text-3xl font-bold text-green-700 mb-6 text-center">🚀 Services We Offer</h2>
 
   <!-- Intro -->
@@ -309,73 +354,144 @@
     💡 <strong>Grow your brand online:</strong> We build modern, mobile-friendly, affordable websites and Android apps for schools, organizations, and businesses.
   </div>
 
-  <!-- Website Packages Table -->
-  <div class="bg-white rounded-lg shadow mb-8 p-6">
-    <h3 class="text-2xl font-semibold text-green-700 mb-4">💰 Website Design Packages</h3>
-    <div class="overflow-x-auto">
-      <table class="min-w-full text-sm text-left text-gray-700">
-        <thead class="bg-green-100 text-green-800">
-          <tr>
-            <th class="py-3 px-4">Pages</th>
-            <th class="py-3 px-4">Type</th>
-            <th class="py-3 px-4">Cost (KES)</th>
-            <th class="py-3 px-4">Cost (USD)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="hover:bg-green-50">
-            <td class="py-3 px-4">1 Page</td>
-            <td class="py-3 px-4">Simple Landing Page</td>
-            <td class="py-3 px-4 text-lg font-bold text-green-800">10,000</td>
-            <td class="py-3 px-4 text-lg font-bold text-blue-800">$77</td>
-          </tr>
-          <tr class="hover:bg-green-50">
-            <td class="py-3 px-4">2 Pages</td>
-            <td class="py-3 px-4">Basic Website</td>
-            <td class="py-3 px-4 text-lg font-bold text-green-800">18,000</td>
-            <td class="py-3 px-4 text-lg font-bold text-blue-800">$138.5</td>
-          </tr>
-          <tr class="hover:bg-green-50">
-            <td class="py-3 px-4">3 Pages</td>
-            <td class="py-3 px-4">Medium Website</td>
-            <td class="py-3 px-4 text-lg font-bold text-green-800">26,000</td>
-            <td class="py-3 px-4 text-lg font-bold text-blue-800">$200</td>
-          </tr>
-          <tr class="hover:bg-green-50">
-            <td class="py-3 px-4">4 Pages</td>
-            <td class="py-3 px-4">Advanced Website</td>
-            <td class="py-3 px-4 text-lg font-bold text-green-800">33,000</td>
-            <td class="py-3 px-4 text-lg font-bold text-blue-800">$254</td>
-          </tr>
-          <tr class="hover:bg-green-50">
-            <td class="py-3 px-4">5 Pages</td>
-            <td class="py-3 px-4">Complex Website</td>
-            <td class="py-3 px-4 text-lg font-bold text-green-800">40,000</td>
-            <td class="py-3 px-4 text-lg font-bold text-blue-800">$308</td>
-          </tr>
-          <tr class="hover:bg-green-50">
-            <td class="py-3 px-4">6–7 Pages</td>
-            <td class="py-3 px-4">More Complex Website</td>
-            <td class="py-3 px-4 text-lg font-bold text-green-800">50,000</td>
-            <td class="py-3 px-4 text-lg font-bold text-blue-800">$385</td>
-          </tr>
-        </tbody>
-      </table>
+
+<!-- Website Packages Table -->
+<div class="bg-white rounded-lg shadow mb-8 p-6">
+  <h3 class="text-2xl font-bold text-green-700 mb-4">💰 Website Design Packages</h3>
+  <div class="overflow-x-auto">
+    <table class="min-w-full text-base text-left">
+      <thead class="bg-green-100 text-green-800 text-lg">
+        <tr>
+          <th class="py-3 px-4">Pages</th>
+          <th class="py-3 px-4">Type</th>
+          <th class="py-3 px-4">Description</th>
+          <th class="py-3 px-4">Cost (KES)</th>
+          <th class="py-3 px-4">Cost (USD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="hover:bg-green-50">
+          <td class="py-3 px-4 text-indigo-700 font-medium">1 Page</td>
+          <td class="py-3 px-4 text-green-700 font-semibold">Basic Landing Page</td>
+          <td class="py-3 px-4 text-gray-700">One simple scrollable section for announcements or promo.</td>
+          <td class="py-3 px-4 text-lg font-bold text-green-800">10,000</td>
+          <td class="py-3 px-4 text-lg font-bold text-blue-800">$70</td>
+        </tr>
+        <tr class="hover:bg-green-50">
+          <td class="py-3 px-4 text-indigo-700 font-medium">1 Page</td>
+          <td class="py-3 px-4 text-green-700 font-semibold">Campaign Landing Page</td>
+          <td class="py-3 px-4 text-gray-700">Optimized for ads or promotions with a call-to-action.</td>
+          <td class="py-3 px-4 text-lg font-bold text-green-800">14,000</td>
+          <td class="py-3 px-4 text-lg font-bold text-blue-800">$95</td>
+        </tr>
+        <tr class="hover:bg-green-50">
+          <td class="py-3 px-4 text-indigo-700 font-medium">2 Pages</td>
+          <td class="py-3 px-4 text-green-700 font-semibold">Small Business Website</td>
+          <td class="py-3 px-4 text-gray-700">Homepage + contact/services page for startups and small teams.</td>
+          <td class="py-3 px-4 text-lg font-bold text-green-800">18,000</td>
+          <td class="py-3 px-4 text-lg font-bold text-blue-800">$125</td>
+        </tr>
+        <tr class="hover:bg-green-50">
+          <td class="py-3 px-4 text-indigo-700 font-medium">3 Pages</td>
+          <td class="py-3 px-4 text-green-700 font-semibold">Portfolio Website</td>
+          <td class="py-3 px-4 text-gray-700">Showcase your work, skills, and contact info professionally.</td>
+          <td class="py-3 px-4 text-lg font-bold text-green-800">25,000</td>
+          <td class="py-3 px-4 text-lg font-bold text-blue-800">$175</td>
+        </tr>
+        <tr class="hover:bg-green-50">
+          <td class="py-3 px-4 text-indigo-700 font-medium">5–7 Pages</td>
+          <td class="py-3 px-4 text-green-700 font-semibold">Blog or News Website</td>
+          <td class="py-3 px-4 text-gray-700">Dynamic blog or content publishing site with categories and search.</td>
+          <td class="py-3 px-4 text-lg font-bold text-green-800">34,000</td>
+          <td class="py-3 px-4 text-lg font-bold text-blue-800">$235</td>
+        </tr>
+        <tr class="hover:bg-green-50">
+          <td class="py-3 px-4 text-indigo-700 font-medium">5 Pages</td>
+          <td class="py-3 px-4 text-green-700 font-semibold">E-Commerce Website</td>
+          <td class="py-3 px-4 text-gray-700">Sell products online with a cart and secure payment setup.</td>
+          <td class="py-3 px-4 text-lg font-bold text-green-800">47,000</td>
+          <td class="py-3 px-4 text-lg font-bold text-blue-800">$325</td>
+        </tr>
+        <tr class="hover:bg-green-50">
+          <td class="py-3 px-4 text-indigo-700 font-medium">6–7 Pages</td>
+          <td class="py-3 px-4 text-green-700 font-semibold">Corporate Website</td>
+          <td class="py-3 px-4 text-gray-700">A more detailed company website with service pages and team sections.</td>
+          <td class="py-3 px-4 text-lg font-bold text-green-800">54,000</td>
+          <td class="py-3 px-4 text-lg font-bold text-blue-800">$370</td>
+        </tr>
+        <tr class="hover:bg-green-50">
+          <td class="py-3 px-4 text-indigo-700 font-medium">7–9 Pages</td>
+          <td class="py-3 px-4 text-green-700 font-semibold">Subscription-Based Website</td>
+          <td class="py-3 px-4 text-gray-700">Supports user registration, logins, and paid member content.</td>
+          <td class="py-3 px-4 text-lg font-bold text-green-800">77,000</td>
+          <td class="py-3 px-4 text-lg font-bold text-blue-800">$525</td>
+        </tr>
+        <tr class="hover:bg-green-50">
+          <td class="py-3 px-4 text-indigo-700 font-medium">10+ Pages</td>
+          <td class="py-3 px-4 text-green-700 font-semibold">Multi-Vendor Marketplace</td>
+          <td class="py-3 px-4 text-gray-700">Vendors can register, list products, and get payments independently.</td>
+          <td class="py-3 px-4 text-lg font-bold text-green-800">126,000</td>
+          <td class="py-3 px-4 text-lg font-bold text-blue-800">$865</td>
+        </tr>
+        <tr class="hover:bg-green-50">
+          <td class="py-3 px-4 text-indigo-700 font-medium">10+ Pages</td>
+          <td class="py-3 px-4 text-green-700 font-semibold">Custom Web Application</td>
+          <td class="py-3 px-4 text-gray-700">Fully tailored app with advanced features, admin panel, and database.</td>
+          <td class="py-3 px-4 text-lg font-bold text-green-800">180,000</td>
+          <td class="py-3 px-4 text-lg font-bold text-blue-800">$1,240</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- Android App Dev -->
+<div class="bg-white rounded-lg shadow p-6 mb-6">
+  <h3 class="text-2xl font-semibold text-green-700 mb-3">📱 Android App Development</h3>
+  <p class="text-gray-700 mb-4">Includes publishing to the Google Play Store. Final cost depends on features and complexity.</p>
+
+  <div class="space-y-5 text-base text-gray-800">
+    <!-- Basic App -->
+    <div class="border-l-4 border-green-500 pl-4">
+      <p class="text-lg font-bold text-green-700">✅ Basic App – KES 30,000 / $231</p>
+      <ul class="list-disc list-inside ml-2">
+        <li>Static content (About, Services, Contact)</li>
+        <li>No login or user accounts</li>
+        <li>Basic blog or info updates</li>
+        <li class="italic text-gray-600">Example: School info app, church updates, company profile</li>
+      </ul>
+    </div>
+
+    <!-- Intermediate App -->
+    <div class="border-l-4 border-yellow-500 pl-4">
+      <p class="text-lg font-bold text-yellow-700">✅ Intermediate App – KES 80,000 / $615</p>
+      <ul class="list-disc list-inside ml-2">
+        <li>User login & registration</li>
+        <li>Form submissions, uploads</li>
+        <li>Firebase integration</li>
+        <li class="italic text-gray-600">Example: Online quiz, student portal, booking app</li>
+      </ul>
+    </div>
+
+    <!-- Advanced App -->
+    <div class="border-l-4 border-red-500 pl-4">
+      <p class="text-lg font-bold text-red-700">✅ Advanced App – KES 150,000–500,000 / $1,150–$3,847</p>
+      <ul class="list-disc list-inside ml-2">
+        <li>Login + payments (M-Pesa, cards)</li>
+        <li>Real-time chat, push notifications</li>
+        <li>Admin panel, vendor dashboard</li>
+        <li class="italic text-gray-600">Example: E-commerce app, tutor booking, delivery system</li>
+      </ul>
     </div>
   </div>
 
-  <!-- Android App Dev -->
-  <div class="bg-white rounded-lg shadow p-6 mb-6">
-    <h3 class="text-2xl font-semibold text-green-700 mb-3">📱 Android App Development</h3>
-    <p class="text-gray-700 mb-3">Includes publishing to Google Play Store:</p>
-    <ul class="list-disc list-inside text-gray-800 font-medium space-y-2">
-      <li>✅ Simple App: <span class="text-xl font-bold text-green-700">KES 30,000</span> / <span class="text-xl font-bold text-blue-700">$231</span></li>
-      <li>✅ More Complex App: <span class="text-xl font-bold text-green-700">KES 500,000</span> / <span class="text-xl font-bold text-blue-700">$3,847</span></li>
-    </ul>
-    <div class="mt-4 text-yellow-900 bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg leading-relaxed">
-      ⚠️ <strong>Note:</strong> App development cost ranges from <span class="text-green-700 font-bold">KES 30,000</span> to <span class="text-green-700 font-bold">KES 500,000</span> depending on app features & complexity.
-    </div>
+  <!-- Note -->
+  <div class="mt-6 text-yellow-900 bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg leading-relaxed">
+    ⚠️ <strong>Note:</strong> Contact us for a free quote based on your app features and goals.
   </div>
+</div>
+
 
   <!-- Extra Services -->
   <div class="grid md:grid-cols-2 gap-6">
@@ -416,7 +532,7 @@
 
 
 <!-- Testimonials Section -->
-<section class="max-w-6xl mx-auto p-6" data-aos="fade-up">
+<section class="max-w-6xl mx-auto p-6" id="Testimonials" data-aos="fade-up">
   <h2 class="text-3xl font-bold text-green-700 mb-8 text-center">🌟 What Clients Say</h2>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
