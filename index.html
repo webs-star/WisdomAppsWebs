@@ -64,84 +64,80 @@
 <body class="bg-gray-50 text-gray-800 font-sans">
 
 <!-- Navigation Bar -->
-<nav class="sticky top-0 z-50 bg-gradient-to-r from-emerald-500 to-emerald-50 px-4 py-3 border-b-2 border-emerald-300 shadow-md flex items-center justify-between">
-  <!-- Title (responsive text and spacing) -->
-  <div class="text-base sm:text-lg italic font-bold text-emerald-900" style="font-family: 'Pacifico', cursive;">
-    Welcome
-  </div>
-
-  <!-- Desktop Links -->
-  <ul class="hidden sm:flex space-x-4 text-sm sm:text-base font-medium">
-    <li><a href="#about" class="text-blue-700 hover:underline">About</a></li>
-    <li><a href="#projects" class="text-red-600 hover:underline">Projects</a></li>
-    <li><a href="#skills" class="text-emerald-600 hover:underline">Tech & AI</a></li>
-    <li><a href="#services" class="text-yellow-500 hover:underline">Services</a></li>
-    <li><a href="#testimonials" class="text-purple-600 hover:underline">Testimonials</a></li>
-  </ul>
-
-  <!-- Mobile Menu -->
-  <div class="sm:hidden relative">
-    <button id="mobile-menu-toggle" class="text-2xl focus:outline-none">☰</button>
-    <div id="mobile-menu" class="hidden absolute right-0 mt-2 w-44 bg-white rounded-lg shadow-lg z-50 text-sm">
-      <a href="#about" class="block px-4 py-2 text-blue-700">About</a>
-      <a href="#projects" class="block px-4 py-2 text-red-600">Projects</a>
-      <a href="#skills" class="block px-4 py-2 text-emerald-600">Tech & AI</a>
-      <a href="#services" class="block px-4 py-2 text-yellow-500">Services</a>
-      <a href="#testimonials" class="block px-4 py-2 text-purple-600">Testimonials</a>
+  <nav class="sticky top-0 z-50 bg-gradient-to-r from-emerald-500 to-emerald-50 px-4 py-3 border-b-2 border-emerald-300 shadow-md flex items-center justify-between">
+    <!-- Title -->
+    <div class="text-lg italic font-bold text-emerald-900" style="font-family: 'Pacifico', cursive;">
+      Welcome
     </div>
-  </div>
-</nav>
-	
-<!-- Hero Section -->
-<header class="relative flex flex-col sm:flex-row items-center justify-between min-h-[70vh] px-4 sm:px-12 py-12 bg-white overflow-hidden space-y-6 sm:space-y-0 sm:space-x-8">
 
-  <!-- Text + Logo -->
-  <div class="relative z-10 flex flex-col items-center sm:items-start sm:w-1/2 text-center sm:text-left">
-    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753986774/ChatGPT_Image_Jul_31_2025_09_31_40_PM_p4vvg3.png"
-         alt="Logo"
-         class="w-16 h-16 sm:w-24 sm:h-24 rounded-full shadow-md mb-4">
+    <!-- Desktop Links -->
+    <ul class="hidden sm:flex space-x-4 text-sm sm:text-base font-medium">
+      <li><a href="#about" class="text-blue-700 hover:underline">About</a></li>
+      <li><a href="#projects" class="text-red-600 hover:underline">Projects</a></li>
+      <li><a href="#skills" class="text-emerald-600 hover:underline">Tech & AI</a></li>
+      <li><a href="#services" class="text-yellow-500 hover:underline">Services</a></li>
+      <li><a href="#testimonials" class="text-purple-600 hover:underline">Testimonials</a></li>
+    </ul>
 
-    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-      Wisdom Apps & Websites Developers
-    </h1>
-    <p class="mt-3 text-gray-700 text-base sm:text-lg max-w-md">
-      🚀 We build stunning websites and Android apps tailored to your business goals.
+    <!-- Mobile Dropdown -->
+    <div class="sm:hidden relative">
+      <button id="mobile-menu-toggle" class="text-2xl focus:outline-none">☰</button>
+      <div id="mobile-menu" class="hidden absolute right-0 mt-2 w-44 bg-white rounded-lg shadow-lg z-50">
+        <a href="#about" class="block px-4 py-2 text-blue-700">About</a>
+        <a href="#projects" class="block px-4 py-2 text-red-600">Projects</a>
+        <a href="#skills" class="block px-4 py-2 text-emerald-600">Tech & AI</a>
+        <a href="#services" class="block px-4 py-2 text-yellow-500">Services</a>
+        <a href="#testimonials" class="block px-4 py-2 text-purple-600">Testimonials</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <header class="relative flex flex-col-reverse sm:flex-row items-center justify-between min-h-[70vh] px-4 sm:px-12 py-12 bg-white overflow-hidden">
+    <!-- Text and Logo -->
+    <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-start sm:w-1/2 p-4 text-center sm:text-left">
+      <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753986774/ChatGPT_Image_Jul_31_2025_09_31_40_PM_p4vvg3.png"
+           alt="Logo"
+           class="w-20 h-20 sm:w-24 sm:h-24 rounded-full shadow-md mb-4 sm:mb-0 sm:mr-4">
+
+      <div style="text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">
+        <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+          Wisdom Apps & Websites Developers
+        </h1>
+        <p class="mt-4 text-gray-800 text-base sm:text-lg">
+          🚀 We build stunning websites and Android apps tailored to your business goals.
+        </p>
+        <a href="https://wa.me/254769255782"
+           target="_blank"
+           class="inline-block mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold text-base px-6 py-3 rounded-full transition duration-300 shadow-md">
+          📞 Hire Us Now
+        </a>
+      </div>
+    </div>
+
+    <!-- Circular Background Image -->
+    <div class="w-[220px] h-[220px] sm:w-[360px] sm:h-[360px] rounded-full bg-cover bg-center shadow-lg mt-8 sm:mt-0"
+         style="background-image: url('https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?w=800&auto=format&fit=crop&q=60');">
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-10" id="about">
+    <div class="flex items-center space-x-4 mb-6">
+      <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753986774/ChatGPT_Image_Jul_31_2025_09_31_40_PM_p4vvg3.png"
+           alt="Logo"
+           class="w-10 h-10 rounded-full shadow-md">
+      <h2 class="text-3xl font-bold text-emerald-700">About Us</h2>
+    </div>
+    <p class="text-lg text-gray-800">
+      At <strong class="text-emerald-700">Wisdom Apps and Websites Developers</strong>, we specialize in building clean, fast, and responsive websites and mobile apps.
+      We work with tools like <span class="font-semibold text-green-700">HTML</span>,
+      <span class="font-semibold text-blue-700">CSS</span>,
+      <span class="font-semibold text-yellow-500">JavaScript</span>,
+      <span class="font-semibold text-purple-600">GitHub Pages</span>,
+      and <span class="font-semibold text-red-500">Firebase</span>.
     </p>
-    <a href="https://wa.me/254769255782"
-       target="_blank"
-       class="mt-5 inline-block bg-green-600 hover:bg-green-700 text-white font-semibold text-sm sm:text-base px-5 py-2 rounded-full transition duration-300 shadow-md">
-      📞 Hire Us Now
-    </a>
-  </div>
-
- 
-
-  <!-- Circular Image (Right) -->
-  <div
-    class="w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] rounded-full bg-cover bg-center bg-no-repeat shadow-lg"
-    style="background-image: url('https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?w=800&auto=format&fit=crop&q=60');">
-  </div>
-</header>
-
-<!-- About Section -->
-<section class="max-w-5xl mx-auto px-4 sm:px-6 py-10" id="about">
-  <div class="flex items-center space-x-4 mb-6">
-    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753986774/ChatGPT_Image_Jul_31_2025_09_31_40_PM_p4vvg3.png"
-         alt="Logo"
-         class="w-10 h-10 rounded-full shadow-md">
-    <h2 class="text-3xl font-bold text-emerald-700">About Us</h2>
-  </div>
-  <p class="text-lg text-gray-800">
-    At <strong class="text-emerald-700">Wisdom Apps and Websites Developers</strong>, we specialize in building clean, fast, and responsive websites and mobile apps.
-    We work with tools like <span class="font-semibold text-green-700">HTML</span>,
-    <span class="font-semibold text-blue-700">CSS</span>,
-    <span class="font-semibold text-yellow-500">JavaScript</span>,
-    <span class="font-semibold text-purple-600">GitHub Pages</span>,
-    and <span class="font-semibold text-red-500">Firebase</span>.
-  </p>
-</section>
-
-
+  </section>
   <!-- Project Section with Animation -->
   
   
