@@ -93,36 +93,38 @@
   </nav>
 
   <!-- Hero Banner -->
-<header class="relative flex flex-col-reverse sm:flex-row items-center justify-between min-h-[70vh] px-4 sm:px-12 py-12 bg-white overflow-hidden">
-  <!-- Text + Logo (on top for phone, left for PC) -->
-  <div class="relative z-10 flex flex-row items-start w-full sm:w-1/2 p-4 gap-4 text-left">
-    <!-- Logo -->
-    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753986774/ChatGPT_Image_Jul_31_2025_09_31_40_PM_p4vvg3.png"
-         alt="Logo"
-         class="w-20 h-20 sm:w-24 sm:h-24 rounded-full shadow-md flex-shrink-0" />
-
-    <!-- Text Content -->
-    <div style="text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">
+<header class="relative flex flex-col sm:flex-row items-center justify-between min-h-[70vh] px-4 sm:px-12 py-12 bg-white overflow-hidden">
+  <!-- Left Side (Text + Logo) -->
+  <div class="relative z-10 w-full sm:w-1/2 flex flex-col items-start text-left px-4">
+    <div class="flex items-center mb-4">
+      <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753986774/ChatGPT_Image_Jul_31_2025_09_31_40_PM_p4vvg3.png"
+           alt="Logo"
+           class="w-16 h-16 sm:w-24 sm:h-24 rounded-full shadow-md mr-3" />
       <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900">
         Wisdom Apps & Websites Developers
       </h1>
-      <p class="mt-4 text-gray-800 text-base sm:text-lg">
-        🚀 We build stunning websites and Android apps tailored to your business goals.
-      </p>
-      <a href="https://wa.me/254769255782"
-         target="_blank"
-         class="inline-block mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold text-base px-6 py-3 rounded-full transition duration-300 shadow-md">
-        📞 Hire Us Now
-      </a>
     </div>
+
+    <p class="mt-2 text-gray-800 text-base sm:text-lg">
+      🚀 We build stunning websites and Android apps tailored to your business goals.
+    </p>
+
+    <a href="https://wa.me/254769255782"
+       target="_blank"
+       class="inline-block mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold text-base px-6 py-3 rounded-full transition duration-300 shadow-md">
+      📞 Hire Us Now
+    </a>
   </div>
 
-  <!-- Background Image (below text on phone, right side on PC) -->
-  <div
-    class="w-[220px] h-[220px] sm:w-[360px] sm:h-[360px] rounded-full bg-cover bg-center shadow-lg mb-6 sm:mb-0"
-    style="background-image: url('https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?w=800&auto=format&fit=crop&q=60');">
+  <!-- Right Side (Image on PC, Below on Mobile) -->
+  <div class="w-full sm:w-[360px] h-[220px] sm:h-[360px] mt-10 sm:mt-0 flex justify-center sm:justify-end">
+    <div
+      class="w-[220px] h-[220px] sm:w-[360px] sm:h-[360px] rounded-full bg-cover bg-center shadow-lg"
+      style="background-image: url('https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?w=800&auto=format&fit=crop&q=60');">
+    </div>
   </div>
 </header>
+
 
   <!-- About Section -->
   <section class="max-w-5xl mx-auto px-4 sm:px-6 py-10" id="about">
