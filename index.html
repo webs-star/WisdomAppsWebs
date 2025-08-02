@@ -60,79 +60,81 @@
 <body class="bg-gray-50 text-gray-800 font-sans">
 
 
+<!-- Tailwind CDN for quick demo setup -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Navigation Bar with Colored Links -->
-<nav style="position: sticky; top: 0; z-index: 50; background: linear-gradient(to right, #10b981, #f0fdf4); padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #6ee7b7;">
-
+<!-- Navigation Bar -->
+<nav class="sticky top-0 z-50 bg-gradient-to-r from-emerald-500 to-emerald-50 px-4 py-3 border-b-2 border-emerald-300 shadow-md flex items-center justify-between">
   <!-- Title -->
-  <div style="font-size: 1.2rem; font-weight: bold; color: #065f46;">
-    Welcome
-  </div>
+  <div class="text-lg font-bold text-emerald-900">Welcome</div>
 
   <!-- Desktop Links -->
-  <ul class="sm:flex hidden space-x-4 text-sm sm:text-base font-medium">
-    <li><a href="#about" style="color: #1d4ed8;">About</a></li>
-    <li><a href="#projects" style="color: #dc2626;">Projects</a></li>
-    <li><a href="#skills" style="color: #10b981;">Tech & AI</a></li>
-    <li><a href="#services" style="color: #f59e0b;">Services</a></li>
-    <li><a href="#testimonials" style="color: #9333ea;">Testimonials</a></li>
+  <ul class="hidden sm:flex space-x-4 text-sm sm:text-base font-medium">
+    <li><a href="#about" class="text-blue-700 hover:underline">About</a></li>
+    <li><a href="#projects" class="text-red-600 hover:underline">Projects</a></li>
+    <li><a href="#skills" class="text-emerald-600 hover:underline">Tech & AI</a></li>
+    <li><a href="#services" class="text-yellow-500 hover:underline">Services</a></li>
+    <li><a href="#testimonials" class="text-purple-600 hover:underline">Testimonials</a></li>
   </ul>
 
-  <!-- Mobile Dropdown Menu -->
+  <!-- Mobile Dropdown -->
   <div class="sm:hidden relative">
-    <button id="mobile-menu-toggle"
-            style="font-size: 1.5rem; background: none; border: none; cursor: pointer;">⋮</button>
-
-    <div id="mobile-menu"
-         style="display: none; position: absolute; right: 0; margin-top: 8px; width: 180px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 100;">
-      <a href="#about" style="display: block; padding: 8px 16px; color: #1d4ed8; text-decoration: none;">About</a>
-      <a href="#projects" style="display: block; padding: 8px 16px; color: #dc2626; text-decoration: none;">Projects</a>
-      <a href="#skills" style="display: block; padding: 8px 16px; color: #10b981; text-decoration: none;">Tech & AI</a>
-      <a href="#services" style="display: block; padding: 8px 16px; color: #f59e0b; text-decoration: none;">Services</a>
-      <a href="#testimonials" style="display: block; padding: 8px 16px; color: #9333ea; text-decoration: none;">Testimonials</a>
+    <button id="mobile-menu-toggle" class="text-2xl focus:outline-none">☰</button>
+    <div id="mobile-menu" class="hidden absolute right-0 mt-2 w-44 bg-white rounded-lg shadow-lg z-50">
+      <a href="#about" class="block px-4 py-2 text-blue-700">About</a>
+      <a href="#projects" class="block px-4 py-2 text-red-600">Projects</a>
+      <a href="#skills" class="block px-4 py-2 text-emerald-600">Tech & AI</a>
+      <a href="#services" class="block px-4 py-2 text-yellow-500">Services</a>
+      <a href="#testimonials" class="block px-4 py-2 text-purple-600">Testimonials</a>
     </div>
   </div>
 </nav>
 
-
-
-
-
-
 <!-- Hero Banner with Circular Background -->
-<header class="relative flex items-center justify-center min-h-[60vh] sm:min-h-[70vh] bg-black bg-opacity-10 overflow-hidden">
-  <div
-    class="absolute w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] rounded-full bg-cover bg-center bg-no-repeat shadow-lg"
-    style="background-image: url('https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?w=800&auto=format&fit=crop&q=60');">
+<header class="relative flex flex-col-reverse sm:flex-row items-center justify-between min-h-[70vh] px-4 sm:px-12 py-12 bg-white overflow-hidden">
+  <!-- Text and Logo (Left) -->
+  <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-start sm:w-1/2 p-4">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753986774/ChatGPT_Image_Jul_31_2025_09_31_40_PM_p4vvg3.png"
+         alt="Logo"
+         class="w-20 h-20 sm:w-24 sm:h-24 rounded-full shadow-md mb-4 sm:mb-0 sm:mr-4">
+
+    <div style="text-shadow: 1px 1px 3px rgba(0,0,0,0.4);">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+        Wisdom Apps & Websites Developers
+      </h1>
+      <p class="mt-4 text-gray-800 text-base sm:text-lg">
+        🚀 We build stunning websites and Android apps tailored to your business goals.
+      </p>
+      <a href="https://wa.me/254769255782"
+         target="_blank"
+         class="inline-block mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold text-base px-6 py-3 rounded-full transition duration-300 shadow-md">
+        📞 Hire Us Now
+      </a>
+    </div>
   </div>
 
-  <div class="relative z-10 text-white text-center p-4 sm:p-6 max-w-[90%] sm:max-w-xl bg-black bg-opacity-30 rounded-lg" data-aos="zoom-in">
-    <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight">
-      Wisdom Apps & Websites Developers
-    </h1>
-    <p class="text-sm sm:text-base md:text-lg mt-3 sm:mt-4">
-      We build stunning websites and Android apps using modern tools
-    </p>
-    <a href="https://wa.me/254769255782" target="_blank" aria-label="Hire Us Now"
-       class="inline-block mt-5 sm:mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold text-sm sm:text-base px-5 py-2 sm:px-6 sm:py-3 rounded-full transition duration-300">
-      📞 Hire Us Now  
-    </a>
+  <!-- Circular Image (Right) -->
+  <div
+    class="w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] rounded-full bg-cover bg-center bg-no-repeat shadow-lg"
+    style="background-image: url('https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?w=800&auto=format&fit=crop&q=60');">
   </div>
 </header>
 
-
-	
 <!-- About Section -->
-<section class="max-w-5xl mx-auto p-6" id="about" data-aos="fade-up">
-  <div class="flex items-center space-x-4 mb-4">
-    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753986774/ChatGPT_Image_Jul_31_2025_09_31_40_PM_p4vvg3.png" alt="Wisdom Apps & Websites Developers Logo" class="w-32 h-32 rounded-full shadow-md">
-    <h2 class="text-3xl font-bold text-green-700">About Us</h2>
+<section class="max-w-5xl mx-auto px-4 sm:px-6 py-10" id="about">
+  <div class="flex items-center space-x-4 mb-6">
+    <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753986774/ChatGPT_Image_Jul_31_2025_09_31_40_PM_p4vvg3.png"
+         alt="Logo"
+         class="w-10 h-10 rounded-full shadow-md">
+    <h2 class="text-3xl font-bold text-emerald-700">About Us</h2>
   </div>
-  <p class="text-lg">
-    At <strong>Wisdom Apps and Websites Developers</strong>, we specialize in creating fast, clean, and responsive websites and Android apps.
-    We use <span class="text-green-700 font-semibold">HTML</span>, <span class="text-blue-700 font-semibold">CSS</span>, 
-    <span class="text-yellow-500 font-semibold">JavaScript</span>, <span class="text-purple-600 font-semibold">GitHub Pages</span>, 
-    <span class="text-red-500 font-semibold">Firebase</span>, and more.
+  <p class="text-lg text-gray-800">
+    At <strong class="text-emerald-700">Wisdom Apps and Websites Developers</strong>, we specialize in building clean, fast, and responsive websites and mobile apps.
+    We work with tools like <span class="font-semibold text-green-700">HTML</span>,
+    <span class="font-semibold text-blue-700">CSS</span>,
+    <span class="font-semibold text-yellow-500">JavaScript</span>,
+    <span class="font-semibold text-purple-600">GitHub Pages</span>,
+    and <span class="font-semibold text-red-500">Firebase</span>.
   </p>
 </section>
 
