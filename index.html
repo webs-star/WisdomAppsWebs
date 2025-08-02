@@ -63,17 +63,12 @@
 
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-
-<!-- Tailwind CDN for quick demo setup -->
-<script src="https://cdn.tailwindcss.com"></script>
-
 <!-- Navigation Bar -->
 <nav class="sticky top-0 z-50 bg-gradient-to-r from-emerald-500 to-emerald-50 px-4 py-3 border-b-2 border-emerald-300 shadow-md flex items-center justify-between">
-  <!-- Title -->
-  <div class="text-lg italic font-bold text-emerald-900" style="font-family: 'Pacifico', cursive;">
+  <!-- Title (responsive text and spacing) -->
+  <div class="text-base sm:text-lg italic font-bold text-emerald-900" style="font-family: 'Pacifico', cursive;">
     Welcome
   </div>
-
 
   <!-- Desktop Links -->
   <ul class="hidden sm:flex space-x-4 text-sm sm:text-base font-medium">
@@ -84,10 +79,10 @@
     <li><a href="#testimonials" class="text-purple-600 hover:underline">Testimonials</a></li>
   </ul>
 
-  <!-- Mobile Dropdown -->
+  <!-- Mobile Menu -->
   <div class="sm:hidden relative">
     <button id="mobile-menu-toggle" class="text-2xl focus:outline-none">☰</button>
-    <div id="mobile-menu" class="hidden absolute right-0 mt-2 w-44 bg-white rounded-lg shadow-lg z-50">
+    <div id="mobile-menu" class="hidden absolute right-0 mt-2 w-44 bg-white rounded-lg shadow-lg z-50 text-sm">
       <a href="#about" class="block px-4 py-2 text-blue-700">About</a>
       <a href="#projects" class="block px-4 py-2 text-red-600">Projects</a>
       <a href="#skills" class="block px-4 py-2 text-emerald-600">Tech & AI</a>
@@ -96,29 +91,30 @@
     </div>
   </div>
 </nav>
+	
+<!-- Hero Section -->
+<header class="relative flex flex-col sm:flex-row items-center justify-between min-h-[70vh] px-4 sm:px-12 py-12 bg-white overflow-hidden space-y-6 sm:space-y-0 sm:space-x-8">
 
-<!-- Hero Banner with Circular Background -->
-<header class="relative flex flex-col-reverse sm:flex-row items-center justify-between min-h-[70vh] px-4 sm:px-12 py-12 bg-white overflow-hidden">
-  <!-- Text and Logo (Left) -->
-  <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-start sm:w-1/2 p-4">
+  <!-- Text + Logo -->
+  <div class="relative z-10 flex flex-col items-center sm:items-start sm:w-1/2 text-center sm:text-left">
     <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1753986774/ChatGPT_Image_Jul_31_2025_09_31_40_PM_p4vvg3.png"
          alt="Logo"
-         class="w-20 h-20 sm:w-24 sm:h-24 rounded-full shadow-md mb-4 sm:mb-0 sm:mr-4">
+         class="w-16 h-16 sm:w-24 sm:h-24 rounded-full shadow-md mb-4">
 
-    <div style="text-shadow: 1px 1px 3px rgba(0,0,0,0.4);">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
-        Wisdom Apps & Websites Developers
-      </h1>
-      <p class="mt-4 text-gray-800 text-base sm:text-lg">
-        🚀 We build stunning websites and Android apps tailored to your business goals.
-      </p>
-      <a href="https://wa.me/254769255782"
-         target="_blank"
-         class="inline-block mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold text-base px-6 py-3 rounded-full transition duration-300 shadow-md">
-        📞 Hire Us Now
-      </a>
-    </div>
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+      Wisdom Apps & Websites Developers
+    </h1>
+    <p class="mt-3 text-gray-700 text-base sm:text-lg max-w-md">
+      🚀 We build stunning websites and Android apps tailored to your business goals.
+    </p>
+    <a href="https://wa.me/254769255782"
+       target="_blank"
+       class="mt-5 inline-block bg-green-600 hover:bg-green-700 text-white font-semibold text-sm sm:text-base px-5 py-2 rounded-full transition duration-300 shadow-md">
+      📞 Hire Us Now
+    </a>
   </div>
+
+ 
 
   <!-- Circular Image (Right) -->
   <div
