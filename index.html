@@ -39,24 +39,60 @@
 	
   <!-- Custom Animations -->
   <style>
-    .zoom       { animation: zoomIn 1s ease-in-out; }
-    .slide-left { animation: slideLeft 1s ease-in-out; }
-    .slide-up   { animation: slideUp 1s ease-in-out; }
-    .fade       { animation: fadeIn 1s ease-in-out; }
+    /* ===================== */
+    /* GLOBAL CARD ANIMATIONS */
+    /* ===================== */
+    .zoom       { animation: zoomIn 0.8s ease-in-out both; }
+    .slide-left { animation: slideLeft 0.8s ease-in-out both; }
+    .slide-up   { animation: slideUp 0.8s ease-in-out both; }
+    .fade       { animation: fadeIn 0.8s ease-in-out both; }
 
-    @keyframes zoomIn     { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-    @keyframes slideLeft  { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-    @keyframes slideUp    { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    @keyframes fadeIn     { from { opacity: 0; } to { opacity: 1; } }
-
-    .project-img {
-      display: none;
-      will-change: transform, opacity;
+    @keyframes zoomIn {
+        from { transform: scale(0.9); opacity: 0; }
+        to   { transform: scale(1); opacity: 1; }
     }
-	
-	
-	
-  </style>
+
+    @keyframes slideLeft {
+        from { transform: translateX(20px); opacity: 0; }
+        to   { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to   { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+
+    /* ===================== */
+    /* PROJECT IMAGE SLIDESHOW */
+    /* ===================== */
+    .project-img {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+        position: absolute;
+        will-change: opacity, transform;
+    }
+
+    /* when image becomes active (display: block) */
+    .project-img.active {
+        display: block;
+        opacity: 1;
+        animation: zoomIn 0.8s ease-in-out;
+    }
+
+    /* The first/main image should appear */
+    .project-img:first-child {
+        display: block;
+        opacity: 1;
+    }
+</style>
+
 </head>
 
 
