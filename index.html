@@ -674,59 +674,81 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     // AOS init
-    if (typeof AOS !== "undefined") {
-      AOS.init();
-    }
+    if (typeof AOS !== "undefined") AOS.init();
 
-    // Set current year if element exists
+    // Set year
     const yearElement = document.getElementById("year");
-    if (yearElement) {
-      yearElement.textContent = new Date().getFullYear();
-    }
+    if (yearElement) yearElement.textContent = new Date().getFullYear();
 
-    // Project image cycling logic
+
+    /* =====================================================
+       FIXED PROJECT IMAGE CYCLER WITH SMOOTH ANIMATIONS
+    ====================================================== */
+
     function cycleProjectImages(projectName, animationList) {
-      const images = document.querySelectorAll(`img[data-project="${projectName}"]`);
-      let current = 0;
-      if (images.length === 0) return;
+        const images = document.querySelectorAll(`img[data-project="${projectName}"]`);
+        let current = 0;
 
-      images[current].style.display = "block";
-      images[current].classList.add(animationList[current % animationList.length]);
+        if (images.length === 0) return;
 
-      setInterval(() => {
-        images[current].style.display = "none";
-        images[current].classList.remove(...animationList);
-        current = (current + 1) % images.length;
-        images[current].style.display = "block";
-        images[current].classList.add(animationList[current % animationList.length]);
-      }, 3000);
+        // Force all images to be hidden initially
+        images.forEach(img => {
+            img.style.opacity = "0";
+            img.style.transition = "opacity 0.8s ease-in-out";
+            img.style.position = "absolute";
+        });
+
+        // Show the first image
+        images[current].style.opacity = "1";
+
+        setInterval(() => {
+            const prev = current;
+            current = (current + 1) % images.length;
+
+            // Remove previous animations
+            images.forEach(img => img.classList.remove(...animationList));
+
+            // Fade out old image
+            images[prev].style.opacity = "0";
+
+            // Add animation class to new image
+            const animClass = animationList[current % animationList.length];
+            images[current].classList.add(animClass);
+
+            // Fade in new image
+            images[current].style.opacity = "1";
+
+        }, 3000);
     }
 
-    // Mobile dropdown toggle
+
+    // Start cycling for each project
+    cycleProjectImages("savina", ["zoom", "slide-left", "fade", "slide-up"]);
+    cycleProjectImages("real", ["slide-left", "fade", "zoom", "slide-up"]);
+    cycleProjectImages("elimu", ["slide-up", "zoom", "slide-left", "fade"]);
+    cycleProjectImages("app", ["fade", "slide-left", "zoom", "slide-up"]);
+    cycleProjectImages("swissaid", ["zoom", "fade", "slide-left", "slide-up"]); // NEW ONE FIXED!
+
+
+    /* =====================================================
+       MOBILE MENU TOGGLE
+    ====================================================== */
     const toggleButton = document.getElementById('mobile-menu-toggle');
     const menu = document.getElementById('mobile-menu');
 
     if (toggleButton && menu) {
-      toggleButton.addEventListener('click', () => {
-        const isVisible = menu.style.display === 'block';
-        menu.style.display = isVisible ? 'none' : 'block';
-      });
-
-      // Hide dropdown when a link is clicked
-      const links = menu.querySelectorAll('a');
-      links.forEach(link => {
-        link.addEventListener('click', () => {
-          menu.style.display = 'none';
+        toggleButton.addEventListener('click', () => {
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         });
-      });
-    }
 
-    // Start image animations
-    cycleProjectImages("savina", ["zoom", "slide-left", "fade", "slide-up", "zoom"]);
-    cycleProjectImages("real", ["slide-left", "fade", "zoom", "slide-up", "fade"]);
-    cycleProjectImages("elimu", ["slide-up", "zoom", "slide-left", "fade", "zoom"]);
-    cycleProjectImages("app", ["fade", "slide-left", "zoom", "slide-up", "fade"]);
-  });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.style.display = 'none';
+            });
+        });
+    }
+});
+
 </script>
 
 	
