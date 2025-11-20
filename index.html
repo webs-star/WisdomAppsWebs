@@ -672,81 +672,64 @@
     <span class="font-semibold text-sm">Contact Us</span>
   </a>
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     // AOS init
-    if (typeof AOS !== "undefined") AOS.init();
-
-    // Set year
-    const yearElement = document.getElementById("year");
-    if (yearElement) yearElement.textContent = new Date().getFullYear();
-
-
-    /* =====================================================
-       FIXED PROJECT IMAGE CYCLER WITH SMOOTH ANIMATIONS
-    ====================================================== */
-
-    function cycleProjectImages(projectName, animationList) {
-        const images = document.querySelectorAll(`img[data-project="${projectName}"]`);
-        let current = 0;
-
-        if (images.length === 0) return;
-
-        // Force all images to be hidden initially
-        images.forEach(img => {
-            img.style.opacity = "0";
-            img.style.transition = "opacity 0.8s ease-in-out";
-            img.style.position = "absolute";
-        });
-
-        // Show the first image
-        images[current].style.opacity = "1";
-
-        setInterval(() => {
-            const prev = current;
-            current = (current + 1) % images.length;
-
-            // Remove previous animations
-            images.forEach(img => img.classList.remove(...animationList));
-
-            // Fade out old image
-            images[prev].style.opacity = "0";
-
-            // Add animation class to new image
-            const animClass = animationList[current % animationList.length];
-            images[current].classList.add(animClass);
-
-            // Fade in new image
-            images[current].style.opacity = "1";
-
-        }, 3000);
+    if (typeof AOS !== "undefined") {
+      AOS.init();
     }
 
+    // Set current year if element exists
+    const yearElement = document.getElementById("year");
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
 
-    // Start cycling for each project
-    cycleProjectImages("savina", ["zoom", "slide-left", "fade", "slide-up"]);
-    cycleProjectImages("real", ["slide-left", "fade", "zoom", "slide-up"]);
-    cycleProjectImages("elimu", ["slide-up", "zoom", "slide-left", "fade"]);
-    cycleProjectImages("app", ["fade", "slide-left", "zoom", "slide-up"]);
-    cycleProjectImages("swissaid", ["zoom", "fade", "slide-left", "slide-up"]); // NEW ONE FIXED!
+    // Project image cycling logic
+    function cycleProjectImages(projectName, animationList) {
+      const images = document.querySelectorAll(`img[data-project="${projectName}"]`);
+      let current = 0;
+      if (images.length === 0) return;
 
+      images[current].style.display = "block";
+      images[current].classList.add(animationList[current % animationList.length]);
 
-    /* =====================================================
-       MOBILE MENU TOGGLE
-    ====================================================== */
+      setInterval(() => {
+        images[current].style.display = "none";
+        images[current].classList.remove(...animationList);
+        current = (current + 1) % images.length;
+        images[current].style.display = "block";
+        images[current].classList.add(animationList[current % animationList.length]);
+      }, 3000);
+    }
+
+    // Mobile dropdown toggle
     const toggleButton = document.getElementById('mobile-menu-toggle');
     const menu = document.getElementById('mobile-menu');
 
     if (toggleButton && menu) {
-        toggleButton.addEventListener('click', () => {
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        });
+      toggleButton.addEventListener('click', () => {
+        const isVisible = menu.style.display === 'block';
+        menu.style.display = isVisible ? 'none' : 'block';
+      });
 
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.style.display = 'none';
-            });
+      // Hide dropdown when a link is clicked
+      const links = menu.querySelectorAll('a');
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.style.display = 'none';
         });
+      });
     }
+
+    // Start image animations
+    cycleProjectImages("savina", ["zoom", "slide-left", "fade", "slide-up", "zoom"]);
+    cycleProjectImages("real", ["slide-left", "fade", "zoom", "slide-up", "fade"]);
+    cycleProjectImages("elimu", ["slide-up", "zoom", "slide-left", "fade", "zoom"]);
+    cycleProjectImages("app", ["fade", "slide-left", "zoom", "slide-up", "fade"]);
+
+    // ✅ NEW PROJECT ADDED HERE
+    cycleProjectImages("swissaid", ["zoom", "slide-left", "fade", "slide-up", "zoom"]);
+
 });
 
 </script>
