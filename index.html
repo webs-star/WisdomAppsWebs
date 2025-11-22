@@ -185,7 +185,19 @@
     margin-left: 0 !important;
   }
 }
- 
+
+
+
+@media (max-width: 480px) {
+  .hero-bg {
+    background-size: contain !important;
+    background-position: top !important;
+    background-color: #000; /* so empty areas look clean */
+  }
+}
+
+
+	  
 </style>
 
 </head>
@@ -247,10 +259,11 @@
 
 <header class="relative w-full h-[80vh] flex items-center justify-center text-white">
 
-  <!-- Background Image -->
-  <div class="absolute inset-0 bg-cover bg-center"
-       style="background-image:url('https://cdn.pixabay.com/photo/2022/12/04/06/32/programmer-7633812_640.jpg');">
-  </div>
+ <div class="hero-bg absolute inset-0 w-full h-full bg-cover bg-center"
+     style="background-image:url('https://webs-star.github.io/WisdomAppsWebs/background.png');">
+</div>
+
+
 
   <!-- Dark Overlay -->
   <div class="absolute inset-0 bg-black/50"></div>
