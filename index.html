@@ -91,6 +91,16 @@
         display: block;
         opacity: 1;
     }
+
+
+ @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-in-out;
+  }
+	  
 </style>
 
 </head>
@@ -113,6 +123,7 @@
       <li><a href="#skills" class="text-emerald-600 hover:underline">Tech & AI</a></li>
       <li><a href="#services" class="text-yellow-500 hover:underline">Services</a></li>
       <li><a href="#testimonials" class="text-purple-600 hover:underline">Testimonials</a></li>
+		  <li><a href="#process" class="text-purple-600 hover:underline">How We Work</a></li>
     </ul>
 
     <!-- Mobile Dropdown -->
@@ -124,6 +135,7 @@
         <a href="#skills" class="block px-4 py-2 text-emerald-600">Tech & AI</a>
         <a href="#services" class="block px-4 py-2 text-yellow-500">Services</a>
         <a href="#testimonials" class="block px-4 py-2 text-purple-600">Testimonials</a>
+		<li><a href="#process" class="text-purple-600 hover:underline">How We Work</a></li>
       </div>
     </div>
   </nav>
@@ -170,16 +182,88 @@
            class="w-10 h-10 rounded-full shadow-md">
       <h2 class="text-3xl font-bold text-emerald-700">About Us</h2>
     </div>
-    <p class="text-lg text-gray-800">
-      At <strong class="text-emerald-700">Wisdom Apps and Websites Developers</strong>, we specialize in building clean, fast, and responsive websites and mobile apps.
-      We work with tools like <span class="font-semibold text-green-700">HTML</span>,
-      <span class="font-semibold text-blue-700">CSS</span>,
-      <span class="font-semibold text-yellow-500">JavaScript</span>,
-      <span class="font-semibold text-purple-600">GitHub Pages</span>,
-      and <span class="font-semibold text-red-500">Firebase</span>.
-    </p>
+   <p class="text-lg text-gray-800 leading-relaxed">
+  At <strong class="text-emerald-700">Wisdom Apps & Websites Developers</strong>, we create modern, fast, and fully responsive websites and mobile applications. 
+  We build reliable digital solutions using technologies such as 
+  <span class="font-semibold text-green-700">HTML</span>, 
+  <span class="font-semibold text-blue-700">CSS</span>, 
+  <span class="font-semibold text-yellow-500">JavaScript</span>, 
+  <span class="font-semibold text-purple-600">GitHub Pages</span>, 
+  and <span class="font-semibold text-red-500">Firebase</span>. 
+  Our mission is to deliver clean, user-friendly designs that work smoothly on all devices.
+</p>
+
   </section>
-  <!-- Project Section with Animation -->
+
+
+
+<!-- Process Section -->
+<section class="py-16 bg-gray-50" id="process" data-aos="fade-up">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <h2 class="text-3xl font-bold text-green-700 text-center mb-12">
+      🔄 Our Development Process
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+      <!-- Step 1 -->
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition text-center">
+        <div class="text-green-600 text-4xl mb-4">💬</div>
+        <h3 class="font-semibold text-xl text-green-800 mb-2">1. Discussion</h3>
+        <p class="text-gray-700 leading-relaxed text-sm">
+          We begin by understanding your goals, features, design preferences, 
+          and the purpose of your project.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition text-center">
+        <div class="text-green-600 text-4xl mb-4">🎨</div>
+        <h3 class="font-semibold text-xl text-green-800 mb-2">2. Design</h3>
+        <p class="text-gray-700 leading-relaxed text-sm">
+          We create clean design concepts and mockups, refine them with your feedback, 
+          and finalize the UI/UX.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition text-center">
+        <div class="text-green-600 text-4xl mb-4">🛠️</div>
+        <h3 class="font-semibold text-xl text-green-800 mb-2">3. Development</h3>
+        <p class="text-gray-700 leading-relaxed text-sm">
+          We build a fast, responsive, and secure website or app using modern tools 
+          like HTML, CSS, JavaScript, GitHub Pages, and Firebase.
+        </p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition text-center">
+        <div class="text-green-600 text-4xl mb-4">🚀</div>
+        <h3 class="font-semibold text-xl text-green-800 mb-2">4. Launch</h3>
+        <p class="text-gray-700 leading-relaxed text-sm">
+          After testing and polishing, we deploy your project and provide ongoing 
+          support to make sure everything runs smoothly.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
   
   
   <!-- Project Section with Animation -->
@@ -616,35 +700,57 @@
 
 
 
-
-
 <!-- Testimonials Section -->
 <section class="max-w-6xl mx-auto p-6" id="testimonials" data-aos="fade-up">
   <h2 class="text-3xl font-bold text-green-700 mb-8 text-center">🌟 What Clients Say</h2>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-    <!-- Testimonial 1 -->
+    <!-- Testimonial 1: Savina Tours -->
     <div class="bg-white rounded-xl shadow-lg p-6 relative hover:shadow-xl transition">
-      <div class="absolute top-4 right-4 text-green-500 text-3xl">“</div>
-      <p class="text-gray-700 italic mb-4">
-        Wisdom Developers built our travel website quickly and professionally. Their work helped boost our online bookings and gave us a digital edge.
+      <div class="absolute top-4 right-4 text-green-500 text-4xl leading-none">“</div>
+      <p class="text-gray-700 italic mb-4 leading-relaxed">
+        Wisdom Developers built our travel website with great professionalism and speed. 
+        The design is clean, the user experience is excellent, and our online bookings 
+        increased within weeks. Highly reliable and easy to work with.
       </p>
       <footer class="mt-2 font-semibold text-green-800">
         — Mr. Samuel Mwangi Ngunju<br>
-        <span class="text-sm font-normal text-gray-600">Managing Director, Savina Consultancy Tour & Travel Ltd</span>
+        <span class="text-sm font-normal text-gray-600">
+          Managing Director, Savina Consultancy Tour & Travel Ltd
+        </span>
       </footer>
     </div>
 
-    <!-- Testimonial 2 -->
+    <!-- Testimonial 2: Swiss Aid Connect Foundation -->
     <div class="bg-white rounded-xl shadow-lg p-6 relative hover:shadow-xl transition">
-      <div class="absolute top-4 right-4 text-green-500 text-3xl">“</div>
-      <p class="text-gray-700 italic mb-4">
-        Their real estate site was clean, fast, and mobile-friendly. We saw an immediate increase in customer calls and land listing engagements.
+      <div class="absolute top-4 right-4 text-green-500 text-4xl leading-none">“</div>
+      <p class="text-gray-700 italic mb-4 leading-relaxed">
+        The Swiss Aid Connect Foundation website was developed exactly as we envisioned. 
+        It reflects our mission beautifully and functions smoothly on all devices. 
+        The team demonstrated dedication, patience, and excellent technical skill.
+      </p>
+      <footer class="mt-2 font-semibold text-green-800">
+        — Mr. Samuel Mwangi Ngunju<br>
+        <span class="text-sm font-normal text-gray-600">
+          Founder, Swiss Aid Connect Foundation
+        </span>
+      </footer>
+    </div>
+
+    <!-- Testimonial 3: Realplot Connect -->
+    <div class="bg-white rounded-xl shadow-lg p-6 relative hover:shadow-xl transition md:col-span-2">
+      <div class="absolute top-4 right-4 text-green-500 text-4xl leading-none">“</div>
+      <p class="text-gray-700 italic mb-4 leading-relaxed">
+        Their real estate website exceeded our expectations. It is clean, fast, and perfectly 
+        optimized for mobile users. We saw an immediate increase in customer inquiries and 
+        engagement on our land listings. Excellent work and great communication.
       </p>
       <footer class="mt-2 font-semibold text-green-800">
         — Mr. Solomon<br>
-        <span class="text-sm font-normal text-gray-600">CEO, Realplot Connect</span>
+        <span class="text-sm font-normal text-gray-600">
+          CEO, Realplot Connect
+        </span>
       </footer>
     </div>
 
@@ -652,6 +758,106 @@
 </section>
 
 
+
+
+
+
+
+<section id="legal" class="py-16 bg-gray-100">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-gray-900 mb-4">Legal Information</h2>
+    <p class="text-gray-700 mb-8">
+      Below are important documents that explain how we protect your data and how our services operate.
+    </p>
+
+    <div class="space-y-4">
+
+      <!-- Privacy button -->
+      <button
+        onclick="toggleSection('privacyPolicy')"
+        class="w-full text-left p-5 bg-white shadow-md rounded-lg hover:shadow-lg transition"
+      >
+        <h3 class="text-xl font-semibold text-emerald-700">Privacy Policy</h3>
+        <p class="text-gray-600 mt-1">How we collect, use & protect your data.</p>
+      </button>
+
+      <!-- Terms button -->
+      <button
+        onclick="toggleSection('termsService')"
+        class="w-full text-left p-5 bg-white shadow-md rounded-lg hover:shadow-lg transition"
+      >
+        <h3 class="text-xl font-semibold text-emerald-700">Terms of Service</h3>
+        <p class="text-gray-600 mt-1">Your rights, responsibilities & agreements.</p>
+      </button>
+
+    </div>
+
+    <div class="mt-10 text-gray-700">
+      <p>
+        For any legal questions, contact:
+        <strong class="text-emerald-700">wamithisolomon@gmail.com</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- Hidden Privacy Policy -->
+<section id="privacyPolicy"
+  class="max-w-4xl mx-auto p-6 mt-10 bg-white shadow-xl rounded-xl hidden animate-fade-in">
+  <h2 class="text-3xl font-bold text-emerald-700 mb-4">Privacy Policy</h2>
+
+  <p class="text-gray-700 mb-4">
+    We value your privacy. This policy explains how we collect, use, store, and protect your information.
+  </p>
+
+  <h3 class="text-xl font-semibold text-gray-900 mt-6">1. Information We Collect</h3>
+  <p class="text-gray-700">Basic contact information (name, email) when you reach out.</p>
+
+  <h3 class="text-xl font-semibold text-gray-900 mt-6">2. How We Use Your Data</h3>
+  <p class="text-gray-700">
+    To respond to your inquiries, develop your project, and improve our services.
+  </p>
+
+  <h3 class="text-xl font-semibold text-gray-900 mt-6">3. Contact</h3>
+  <p class="text-gray-700">
+    Reach us anytime at <strong>wamithisolomon@gmail.com</strong>.
+  </p>
+</section>
+
+
+
+
+
+
+	
+<!-- Hidden Terms of Service -->
+<section id="termsService"
+  class="max-w-4xl mx-auto p-6 mt-10 bg-white shadow-xl rounded-xl hidden animate-fade-in">
+  <h2 class="text-3xl font-bold text-emerald-700 mb-4">Terms of Service</h2>
+
+  <h3 class="text-xl font-semibold text-gray-900 mt-6">1. Agreement</h3>
+  <p class="text-gray-700">
+    By using our website or services, you agree to follow these terms.
+  </p>
+
+  <h3 class="text-xl font-semibold text-gray-900 mt-6">2. Payments</h3>
+  <p class="text-gray-700">
+    Project payments must be completed as agreed between you and Wisdom Apps and Websites Developers.
+  </p>
+
+  <h3 class="text-xl font-semibold text-gray-900 mt-6">3. Project Ownership</h3>
+  <p class="text-gray-700">
+    After full payment, all final files and website rights belong to the client.
+  </p>
+</section>
+
+
+
+	
   <!-- Contact -->
   <section id="contact" class="max-w-4xl mx-auto p-6 text-center" data-aos="fade-up">
     <h2 class="text-2xl font-bold text-green-700 mb-4">Get In Touch</h2>
@@ -731,6 +937,35 @@ document.addEventListener("DOMContentLoaded", () => {
     cycleProjectImages("swissaid", ["zoom", "slide-left", "fade", "slide-up", "zoom"]);
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+function toggleSection(id) {
+    document.getElementById("privacyPolicy").classList.add("hidden");
+    document.getElementById("termsService").classList.add("hidden");
+
+    const section = document.getElementById(id);
+    section.classList.toggle("hidden");
+
+    // scroll smoothly to opened section
+    if (!section.classList.contains("hidden")) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+
+
+
+	
 
 </script>
 
