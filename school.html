@@ -1,3 +1,5 @@
+<!doctype html>
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -23,3 +25,117 @@
 <!-- Fonts & Icons -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+<style>
+:root {
+  --teal:#0a9b37; --blue:#007bff; --bg:linear-gradient(135deg,#f4fff5,#e8fdf5);
+  --text:#04302a; --muted:#6b7280; --card:#ffffff; --radius:20px;
+}
+*{box-sizing:border-box; scroll-behavior:smooth;}
+body{margin:0; font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text);}
+.wrap{max-width:1200px; margin:auto; padding:20px;}
+header{display:flex; justify-content:space-between; align-items:center; padding:12px 5%; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.1); border-radius:12px; margin-bottom:20px;}
+.site-title{font-weight:700; font-size:26px; color:#0a9b37;}
+.site-sub{font-size:16px; color:#00796b;}
+.lead{font-size:14px; color:#555;}
+nav a{text-decoration:none; font-weight:600; margin-left:12px; color:#1e88e5;}
+.btn-primary{background:linear-gradient(90deg,var(--teal),var(--blue)); color:#fff; padding:10px 16px; border-radius:12px; font-weight:700; text-decoration:none; display:inline-block; margin-top:8px;}
+.btn-outline{border:2px solid var(--teal); color:var(--teal); border-radius:12px; padding:10px 16px; font-weight:700; text-decoration:none; display:inline-block; margin-top:8px;}
+
+.hero{display:flex; justify-content:space-between; align-items:center; gap:20px; background:linear-gradient(120deg,#e0f7fa,#fff8e1); border-radius:24px; padding:30px; flex-wrap:wrap;}
+.hero .text{flex:1; min-width:250px;}
+.hero .visual{flex:1; display:flex; justify-content:center; align-items:center; min-width:200px;}
+.hero .card{flex:1; min-width:220px;}
+
+.big-card{background:var(--card); border-radius:var(--radius); box-shadow:0 12px 20px rgba(0,0,0,0.06); padding:20px; margin-top:20px;}
+.curr-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin-top:12px;}
+.curr-card{background:linear-gradient(135deg,#fff,#e8fdf5); padding:14px; border-radius:12px; text-align:center; font-weight:600; transition:0.3s;}
+.curr-card:hover{transform:scale(1.05); background:linear-gradient(135deg,#dff6ff,#fff);}
+footer{text-align:center; color:var(--muted); font-size:13px; padding:18px; margin-top:30px;}
+
+.menu-toggle2{display:none;}
+@media(max-width:900px){
+  #mainNav2{display:none; flex-direction:column; gap:12px; margin-top:10px;}
+  .menu-toggle2{display:block; font-size:50px; background:none; border:none; cursor:pointer; color:#0d47a1;}
+  header{flex-direction:row; justify-content:space-between; align-items:center;}
+  .hero{flex-direction:column;}
+}
+#mainNav2.show{display:flex; flex-direction:column; gap:12px; margin-top:10px;}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+<!-- Header -->
+<header style="display:flex; justify-content:space-between; align-items:center; padding:12px 5%; background:#fff; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+  <!-- Left: Logo Icon -->
+  <div style="display:flex; align-items:center; gap:12px;">
+    <i class="fas fa-university" style="font-size:50px; color:#0a9b37;"></i>
+    <div style="text-align:center;">
+      <div class="site-title">WebTech Hub Africa</div>
+      <div class="site-sub">Professional School & College Websites — Kenya</div>
+      <div class="lead" style="font-size:13px;color:#555;">Affordable & Mobile-Friendly</div>
+    </div>
+  </div>
+
+  <!-- Right: CTA & Menu -->
+  <div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
+    <button class="menu-toggle2" onclick="toggleMenu2()">⋮</button>
+    <a class="btn-primary" href="https://wa.me/254769255782?text=Hello,%20I%20am%20interested%20in%20school%20website">Quick Chat</a>
+  </div>
+</header>
+
+<nav id="mainNav2" style="align-items:center; gap:12px; flex-wrap:wrap;">
+  <a class="btn-outline" href="https://webs-star.github.io/WisdomAppsWebs/">View Portfolio</a>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="text">
+    <h1>School & College Website Solutions</h1>
+    <p class="lead">Modern, responsive websites for schools & colleges with student portals, fee structures, galleries, and announcements.</p>
+    <a class="btn-primary" href="https://wa.me/254769255782?text=Hello,%20I%20want%20a%20school%20website">Get Started</a>
+    <a class="btn-outline" href="https://webs-star.github.io/WisdomAppsWebs/">View Portfolio</a>
+  </div>
+
+  <div class="visual">
+    <svg width="120" height="120" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="28" fill="#0a9b37" stroke="#04302a" stroke-width="2"/>
+      <text x="32" y="37" text-anchor="middle" fill="#fff" font-size="14" font-family="Poppins" font-weight="700">SCH</text>
+    </svg>
+  </div>
+
+  <div class="card big-card">
+    <h3>Quick Actions</h3>
+    <a class="btn-primary" href="https://wa.me/254769255782?text=Book%20School%20Website">Book Website</a>
+    <a class="btn-outline" href="https://wa.me/254769255782?text=Free%20Quote%20School%20Website">Free Quote</a>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="big-card">
+  <h2>Our Features</h2>
+  <div class="curr-grid">
+    <div class="curr-card">Student & Parent Portals</div>
+    <div class="curr-card">Fee Payment & Structures</div>
+    <div class="curr-card">Photo & Video Galleries</div>
+    <div class="curr-card">Announcements & Events</div>
+  </div>
+  <p><strong>Packages start from $62 / KSh 8,000</strong></p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>We also create websites for other niches: <a href="https://webs-star.github.io/WisdomAppsWebs/">see all projects here</a>.</p>
+  <p>© 2025 WebTech Hub Africa • WhatsApp: <a href="https://wa.me/254769255782">+254 769 255 782</a></p>
+</footer>
+</div>
+
+<script>
+function toggleMenu2(){document.getElementById('mainNav2').classList.toggle('show');}
+</script>
+
+</body>
+</html>
+
