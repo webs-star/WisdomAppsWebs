@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Users List</title>
+
+<!-- Firebase v8 (No Auth) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f4f4f9;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+
+<h1>All Users</h1>
+<table id="usersTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Subject</th>
+      <th>Phone</th>
+      <th>Location</th>
+      <th>Last Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Users will be inserted here -->
+  </tbody>
+</table>
+
+<script>
+/* ============ FIREBASE CONFIG ============ */
+const firebaseConfig = {
+  apiKey: "AIzaSyDFOMjP0XgFCgs-iUg0HYD9DCGjsUOGofE",
+  databaseURL: "https://tutor-students-mapping-default-rtdb.firebaseio.com"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const tableBody = document.querySelector("#usersTable tbody");
+
+/* ============ REVERSE GEOCODING FUNCTION ============ */
+async function getLocationName(lat, lng) {
+  if (lat == null || lng == null) return "Unknown";
+  try {
+    const res = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`);
+    const data = await res.json();
+    return data.address.city || data.address.town || data.address.village || data.address.county || "Unknown";
+  } catch (e) {
+    return "Unknown";
+  }
+}
+
+/* ============ REAL-TIME USER LIST ============ */
+db.ref("locations").on("value", async snap => {
+  tableBody.innerHTML = ""; // Clear table
+  const users = [];
+
+  snap.forEach(child => {
+    const id = child.key;
+    const d = child.val();
+    if (!d) return;
+    users.push({ id, data: d });
+  });
+
+  // Process each user asynchronously
+  for (const user of users) {
+    const d = user.data;
+    const locationName = await getLocationName(d.lat, d.lng);
+
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${escapeHtml(d.name || "Unknown")}</td>
+      <td>${escapeHtml(d.role || "-")}</td>
+      <td>${escapeHtml(d.subject || "-")}</td>
+      <td>${escapeHtml(d.phone || "-")}</td>
+      <td>${locationName}</td>
+      <td>${d.timestamp ? new Date(d.timestamp).toLocaleString() : "-"}</td>
+    `;
+    tableBody.appendChild(tr);
+  }
+});
+
+/* ============ ESCAPE HTML ============ */
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+</script>
+
+</body>
+</html>
