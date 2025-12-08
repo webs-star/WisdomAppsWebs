@@ -182,6 +182,39 @@ button:hover {
   box-shadow: 0 6px 12px rgba(0,0,0,0.4);
 }
 
+
+
+
+.install-box {
+  max-width: 360px;
+  margin: 16px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.install-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.install-btn {
+  display: inline-block;
+  padding: 12px 18px;
+  background: #1976d2;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.install-btn:active {
+  transform: scale(0.97);
+}
+  
 </style>
 </head>
 <body>
@@ -226,27 +259,20 @@ button:hover {
 
 <div id="safetyNotice" class="notice" style="display:none;"></div>
 
-<a href="https://play.google.com/store/apps/details?id=elimuconnect.tuitioncentre"
-   target="_blank"
-   style="
-     display:block;
-     width:100%;
-     max-width:360px;
-     margin:14px auto;
-     padding:14px 16px;
-     text-align:center;
-     font-size:16px;
-     font-weight:600;
-     background:#1976d2;
-     color:#fff;
-     border-radius:12px;
-     text-decoration:none;
-     box-shadow:0 4px 10px rgba(0,0,0,.25);
-   ">
-  🔎 Looking for Online Tutors or Tuition?<br>
-  📲 Install ElimuConnect App
-</a>
 
+<div class="install-box">
+  <div class="install-text">
+    🔎 Looking for Online Tutors or Tuition?
+  </div>
+
+  <a class="install-btn"
+     href="https://play.google.com/store/apps/details?id=elimuconnect.tuitioncentre"
+     target="_blank">
+    📲 Install Elimu Connect App
+  </a>
+</div>
+
+  
 <div class="features">
   <h4>Why Use Elimu Connect Student-Teacher Mapping Tool?</h4>
   <ul>
