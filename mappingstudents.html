@@ -1,0 +1,585 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Elimu Connect – Live Map</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+
+<style>
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f7fa;
+  color: #333;
+}
+/* Header */
+h3 {
+  font-size: 1.5rem;
+  margin: 15px 0;
+  color: #1976d2;
+  text-align: center;  /* Center the heading */
+}
+
+
+/* Map */
+#map {
+  height: 60vh;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin: 15px auto;
+}
+
+/* Inputs */
+input, select, button {
+  padding: 12px 15px;
+  width: 90%;
+  max-width: 400px;
+  margin: 8px auto;
+  display: block;
+  border-radius: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+input:focus, select:focus {
+  border-color: #1976d2;
+  outline: none;
+  box-shadow: 0 0 8px rgba(25, 118, 210, 0.3);
+}
+
+button {
+  background: #1976d2;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #0d47a1;
+}
+
+/* Inline selects */
+.inline {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 400px;
+  margin: 10px auto;
+}
+
+.inline select {
+  width: 48%;
+}
+
+/* Owner buttons */
+.owner-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.owner-buttons button.edit {
+  background-color: #2196F3;
+}
+
+.owner-buttons button {
+  background-color: #e91e63;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+}
+
+/* Safety notice */
+.notice {
+  width: 90%;
+  max-width: 600px;
+  margin: 10px auto;
+  padding: 12px 16px;
+  background: #fff3e0;
+  border: 1px solid #ff9800;
+  border-radius: 10px;
+  font-weight: 600;
+  box-sizing: border-box;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.notice .userItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Features / Benefits Section */
+.features {
+  background: #ffffff;
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.features h4 {
+  color: #1976d2;
+  margin-bottom: 10px;
+}
+
+.features ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.features ul li {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.features ul li::before {
+  content: "✅";
+  margin-right: 8px;
+  color: #4caf50;
+}
+
+
+#whatsappBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#whatsappBtn img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#whatsappBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+</style>
+</head>
+<body>
+
+<div id="safetyNotice" class="notice"></div>
+
+
+
+
+<h3>🌍 Elimu Connect – Discover Tutors/Teachers Very Close to You (Free)</h3>
+
+<input id="name" type="text" placeholder="Your Name" />
+<input id="subject" type="text" placeholder="Subject" />
+<input id="phone" type="text" placeholder="Phone Number(+254(use your country) code......" />
+<select id="role">
+  <option value="Student">Student</option>
+  <option value="Teacher">Teacher</option>
+</select>
+
+<button id="shareBtn">📤 Share / Update My Location</button>
+<button id="deleteBtn" style="margin-top:10px; background:#d32f2f; color:#fff; padding:8px 12px; border:none; border-radius:6px;">
+  🗑️ Delete My Location
+</button>
+
+
+<div class="inline">
+  <select id="filter" onchange="loadMarkers()">
+    <option value="All">All Roles</option>
+    <option value="Student">Only Students</option>
+    <option value="Teacher">Only Teachers</option>
+  </select>
+
+  <select id="userSelect" onchange="zoomToUser(this.value)">
+    <option value="">-- Select Nearby User --</option>
+  </select>
+</div>
+
+<input type="range" id="radius" min="1" max="30" value="30" oninput="updateRadiusLabel(); loadMarkers()" />
+<div id="radiusValue">Showing within: 30 km</div>
+
+<div id="map"></div>
+
+<div id="safetyNotice" class="notice" style="display:none;"></div>
+
+
+<div class="features">
+  <h4>Why Use Elimu Connect Student-Teacher Mapping Tool?</h4>
+  <ul>
+    <li>See tutors within 1–30 km</li>
+    <li>Live real-time location tracking</li>
+    <li>Get routing & directions instantly</li>
+    <li>Discover nearby users quickly and safely</li>
+    <li>Increase visibility and opportunities for tutors</li>
+    <li>Secure and private – exact locations hidden for users within 1 km</li>
+  </ul>
+</div>
+
+
+<!-- WhatsApp / Customer Care Floating Button -->
+<a href="https://wa.me/254769255782" target="_blank" id="whatsappBtn" title="Chat with Customer Care">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+</a>
+
+
+
+
+<!-- Scripts -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+
+
+
+<script>
+  // --- Firebase config ---
+  const firebaseConfig = {
+    apiKey: "AIzaSyDFOMjP0XgFCgs-iUg0HYD9DCGjsUOGofE",
+    authDomain: "tutor-students-mapping.firebaseapp.com",
+    databaseURL: "https://tutor-students-mapping-default-rtdb.firebaseio.com",
+    projectId: "tutor-students-mapping",
+    storageBucket: "tutor-students-mapping.appspot.com",
+    messagingSenderId: "631567514082",
+    appId: "1:631567514082:web:a0d782917914ffe403a1bb"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
+  // --- Globals ---
+  let map, userLat, userLng, markers = [], routingControl = null;
+  const myPhone = localStorage.getItem("myPhone") || "";
+
+  // --- Persisted flag ---
+  let studentHasShared = localStorage.getItem("studentHasShared") === "true";
+
+  // --- Init map ---
+  function initMap() {
+    if (!navigator.geolocation) {
+      alert("❌ Geolocation not supported by your browser.");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(pos => {
+      userLat = pos.coords.latitude;
+      userLng = pos.coords.longitude;
+
+      if (!map) {
+        map = L.map('map').setView([userLat, userLng], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+      } else {
+        map.setView([userLat, userLng], 13);
+      }
+
+      // "You are here" marker
+      if (window.selfMarker) map.removeLayer(window.selfMarker);
+      window.selfMarker = L.marker([userLat, userLng]).addTo(map).bindPopup("📍 You are here");
+
+      // Load markers immediately
+      loadMarkers();
+    }, err => {
+      console.error(err);
+      alert("❌ Location access denied. Allow location to use the live map.");
+    }, { enableHighAccuracy: true, maximumAge: 10000 });
+  }
+
+  // --- Distance ---
+  function getDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a =
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(lat1 * Math.PI / 180) *
+      Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLon/2) * Math.sin(dLon/2);
+    return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)));
+  }
+
+  // --- Update radius label ---
+  function updateRadiusLabel() {
+    const km = document.getElementById("radius").value;
+    document.getElementById("radiusValue").innerText = `Showing within: ${km} km`;
+  }
+
+  // --- Load markers ---
+  function loadMarkers() {
+    if (!map || !userLat || !userLng) return;
+
+    if (!studentHasShared) {
+      document.getElementById("safetyNotice").style.display = "flex";
+      document.getElementById("safetyNotice").innerHTML = "⚠️ Students must share their location first to see other users.";
+      return;
+    }
+
+    // Remove existing markers
+    markers.forEach(m => map.removeLayer(m));
+    markers = [];
+
+    const filter = document.getElementById("filter").value;
+    const maxDistance = parseFloat(document.getElementById("radius").value);
+    const dropdown = document.getElementById("userSelect");
+    dropdown.innerHTML = `<option value="">-- Select Nearby User --</option>`;
+
+    const safetyArr = [];
+
+    db.ref("locations").once("value", snapshot => {
+      snapshot.forEach(child => {
+        const d = child.val();
+        if (!d || typeof d.lat === 'undefined' || typeof d.lng === 'undefined') return;
+        if (filter !== "All" && d.role !== filter) return;
+
+        const dist = getDistance(userLat, userLng, d.lat, d.lng);
+
+        if (dist <= 1) {
+          safetyArr.push({
+            name: d.name,
+            role: d.role,
+            phone: d.phone,
+            subject: d.subject || "",
+            dist
+          });
+          return;
+        }
+
+        if (dist > 1 && dist <= maxDistance) {
+          const marker = L.marker([d.lat, d.lng]).addTo(map);
+          let popupHtml = `<div style="text-align:left; font-size:14px;">
+            <b>${escapeHtml(d.name)}</b><br/>
+            🧑‍🏫 ${escapeHtml(d.role)}<br/>
+            📘 ${escapeHtml(d.subject || '')}<br/>
+            📏 ${dist.toFixed(1)} km away<br/>
+            📞 <a href="tel:${encodeURIComponent(d.phone)}">${escapeHtml(d.phone)}</a><br/><br/>
+            <a href="tel:${encodeURIComponent(d.phone)}" style="display:inline-block;padding:6px 8px;border-radius:6px;background:#1976d2;color:#fff;text-decoration:none;">📲 Call</a>
+          `;
+          if (String(d.phone).replace(/[^0-9]/g, '') === String(localStorage.getItem("myPhone")||'').replace(/[^0-9]/g, '')) {
+            popupHtml += `<div class="owner-buttons" style="margin-top:8px;">
+                <button class="edit" onclick="editMyLocation('${d.phone}')">✏️ Edit</button>
+                <button onclick="deleteMyLocation('${d.phone}')">🗑️ Delete</button>
+            </div>`;
+          }
+          popupHtml += `</div>`;
+          marker.bindPopup(popupHtml);
+          markers.push(marker);
+
+          const opt = document.createElement("option");
+          opt.value = `${d.lat},${d.lng}`;
+          opt.textContent = `${d.name} (${d.role}) – ${dist.toFixed(1)} km`;
+          dropdown.appendChild(opt);
+        }
+      });
+
+      const noticeDiv = document.getElementById("safetyNotice");
+      if (safetyArr.length > 0) {
+        let html = `<strong>⚠️ Safety Notice:</strong> Exact mapping is hidden for users within <b>1 km</b>.<br/>Nearby user(s):`;
+        safetyArr.forEach(u => {
+          html += `<div class="userItem">
+            • <b>${escapeHtml(u.name)}</b> 
+              (${escapeHtml(u.role)} – ${escapeHtml(u.subject || '')})  
+            <a href="tel:${encodeURIComponent(u.phone)}" 
+               style="display:inline-block;padding:4px 6px;border-radius:6px;background:#1976d2;color:#fff;text-decoration:none;">
+               📲 Call
+            </a>
+          </div>`;
+        });
+        noticeDiv.innerHTML = html;
+        noticeDiv.style.display = "flex";
+      } else {
+        noticeDiv.style.display = "none";
+        noticeDiv.innerHTML = "";
+      }
+    });
+  }
+
+  // --- Zoom to user ---
+  function zoomToUser(value) {
+    if (!value) return;
+    const [lat, lng] = value.split(",");
+    const latF = parseFloat(lat);
+    const lngF = parseFloat(lng);
+    if (isNaN(latF) || isNaN(lngF)) return;
+
+    const dist = getDistance(userLat, userLng, latF, lngF);
+    if (dist <= 1) {
+      alert("⚠️ Directions disabled for users within 1 km. Use phone.");
+      return;
+    }
+
+    map.setView([latF, lngF], 15);
+
+    if (routingControl) {
+      try { routingControl.remove(); } catch (e) {}
+      routingControl = null;
+    }
+
+    routingControl = L.Routing.control({
+      waypoints: [
+        L.latLng(userLat, userLng),
+        L.latLng(latF, lngF)
+      ],
+      routeWhileDragging: false,
+      show: true,
+      collapsible: true,
+      addWaypoints: false,
+      draggableWaypoints: false
+    }).addTo(map);
+  }
+
+  // --- Auto-refresh ---
+  let refreshInterval = null;
+  function startAutoRefresh() {
+    if (refreshInterval) clearInterval(refreshInterval);
+    refreshInterval = setInterval(() => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          pos => {
+            userLat = pos.coords.latitude;
+            userLng = pos.coords.longitude;
+            if (window.selfMarker) window.selfMarker.setLatLng([userLat, userLng]);
+            else window.selfMarker = L.marker([userLat, userLng]).addTo(map).bindPopup("📍 You are here");
+            loadMarkers();
+          },
+          err => {
+            console.warn("Auto-refresh geolocation failed:", err.message);
+            loadMarkers();
+          },
+          { enableHighAccuracy: false, maximumAge: 60000, timeout: 5000 }
+        );
+      } else { loadMarkers(); }
+    }, 20000);
+  }
+
+  // --- Share location ---
+  function shareLocation() {
+    const name = document.getElementById("name").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const role = document.getElementById("role").value;
+
+    if (role !== "Student") return alert("Only students can share location.");
+    if (!name || !subject || !phone) return alert("Please fill all fields.");
+    if (!userLat || !userLng) return alert("Location not available. Allow location and try again.");
+
+    localStorage.setItem("myPhone", phone);
+
+    let deviceId = localStorage.getItem("deviceId");
+    if (!deviceId) {
+      deviceId = "dev_" + Math.random().toString(36).substring(2, 10);
+      localStorage.setItem("deviceId", deviceId);
+    }
+
+    const userId = phone.replace(/[^0-9]/g, "") + "_" + deviceId;
+
+    db.ref("locations/" + userId).set({
+      name,
+      subject,
+      phone,
+      role,
+      lat: userLat,
+      lng: userLng,
+      timestamp: Date.now()
+    })
+    .then(() => {
+      alert("✅ Location shared!");
+      studentHasShared = true;
+      localStorage.setItem("studentHasShared", "true"); // persist
+      loadMarkers();
+    })
+    .catch(err => { console.error(err); alert("Error sharing location."); });
+  }
+
+  // --- Edit location ---
+  function editMyLocation() {
+    const deviceId = localStorage.getItem("deviceId");
+    const phone = document.getElementById("phone").value.trim();
+    if (!phone || !deviceId) return alert("Phone or Device ID not found.");
+
+    const key = phone.replace(/[^0-9]/g, "") + "_" + deviceId;
+
+    db.ref("locations/" + key).once("value", snapshot => {
+      const data = snapshot.val();
+      if (!data) return alert("No data found for your device.");
+
+      document.getElementById("name").value = data.name || "";
+      document.getElementById("subject").value = data.subject || "";
+      document.getElementById("role").value = data.role || "Student";
+      if (data.lat && data.lng) map.setView([data.lat, data.lng], 15);
+    });
+  }
+
+  // --- Delete location ---
+  function deleteMyLocation() {
+    const deviceId = localStorage.getItem("deviceId");
+    const phone = document.getElementById("phone").value.trim();
+    if (!phone || !deviceId) return alert("Phone or Device ID not found.");
+
+    const key = phone.replace(/[^0-9]/g, "") + "_" + deviceId;
+
+    if (!confirm("Delete your shared location?")) return;
+
+    db.ref("locations/" + key).remove()
+    .then(() => {
+      alert("❌ Location deleted.");
+      studentHasShared = false;
+      localStorage.setItem("studentHasShared", "false"); // clear persisted flag
+      loadMarkers();
+    })
+    .catch(err => { console.error(err); alert("Error deleting location."); });
+  }
+
+
+document.getElementById("deleteBtn").addEventListener("click", deleteMyLocation);
+
+
+
+  // --- Escape HTML ---
+  function escapeHtml(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  // --- Init ---
+  document.getElementById("shareBtn").addEventListener("click", shareLocation);
+  document.getElementById("radius").addEventListener("change", loadMarkers);
+  updateRadiusLabel();
+  initMap();
+  startAutoRefresh();
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) loadMarkers(); });
+
+
+
+</script>
+
+</body>
+</html>
