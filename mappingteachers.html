@@ -284,6 +284,50 @@ h1 {
 
 
 <script>
+const MAIN_LINK = "https://elimuconnect.github.io/ELIMU-CONNECT-/schooladmin";
+
+// Helper: get base URL without query string
+function getBaseURL(url){
+    return url.split('?')[0];
+}
+
+// Check if this is main link access (ignore query parameters)
+const isMainLink = getBaseURL(window.location.href) === MAIN_LINK;
+
+// Check if we came from main link redirect (ignore query)
+const fromMainLink = getBaseURL(document.referrer) === MAIN_LINK;
+
+if(isMainLink || fromMainLink){
+    // ✅ Access allowed – do nothing
+} else {
+    // ❌ Block access
+    document.body.innerHTML = `
+        <div style="text-align:center; padding:50px; font-family:sans-serif;">
+            <h2>Access Restricted</h2>
+            <p>You cannot open this tool directly.</p>
+            <p>Please open it from the main link(school Tools).</p>
+
+            <a href="${MAIN_LINK}"
+               style="font-size:1.2rem; color:#0078D7;">
+               Open from Main School Tools
+            </a>
+        </div>
+    `;
+    throw new Error("Access blocked until opened from main link.");
+}
+
+
+
+
+    
+
+
+
+
+
+
+
+  
 const firebaseConfig = {
   apiKey: "AIzaSyDFOMjP0XgFCgs-iUg0HYD9DCGjsUOGofE",
   authDomain: "tutor-students-mapping.firebaseapp.com",
