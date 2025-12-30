@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Super Admin — Suggestions</title>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f4f6fb;
+      padding:25px;
+    }
+
+    h1{
+      margin-bottom:15px;
+    }
+
+    .card{
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 10px 25px rgba(0,0,0,.05);
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:10px;
+    }
+
+    th, td{
+      padding:10px;
+      border-bottom:1px solid #e5e5e5;
+      text-align:left;
+      font-size:14px;
+    }
+
+    th{
+      background:#f0f2ff;
+      font-weight:bold;
+    }
+
+    tr:hover{
+      background:#fafafa;
+    }
+
+    .badge{
+      background:#0078d7;
+      color:white;
+      padding:2px 7px;
+      border-radius:6px;
+      font-size:11px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Super Admin — Teacher Suggestions</h1>
+
+  <div class="card">
+    <span class="badge" id="countBadge">0 records</span>
+
+    <table>
+      <thead>
+        <tr>
+          <th>School</th>
+          <th>Teacher</th>
+          <th>Tool</th>
+          <th>Area of Improvement</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+
+      <tbody id="suggestionsTable">
+        <tr>
+          <td colspan="5">Loading…</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    // Initialize Firebase
+    firebase.initializeApp({
+      apiKey: "AIzaSyCAiOSHmURDyAAYm5EmoomLkZ_Aud7iXIQ",
+      authDomain: "cbc-general.firebaseapp.com",
+      databaseURL: "https://cbc-general-default-rtdb.firebaseio.com",
+      projectId: "cbc-general",
+      storageBucket: "cbc-general.firebasestorage.app",
+      messagingSenderId: "764732839741",
+      appId: "1:764732839741:web:ab829af54839de91359754"
+    });
+
+    const db = firebase.database();
+    const tableBody = document.getElementById("suggestionsTable");
+    const countBadge = document.getElementById("countBadge");
+
+    function formatDate(iso){
+      const d = new Date(iso);
+      return d.toLocaleString();
+    }
+
+    function loadSuggestions(){
+      db.ref("school_tool_suggestions").on("value", snapshot => {
+        tableBody.innerHTML = "";
+        let count = 0;
+
+        if(!snapshot.exists()){
+          tableBody.innerHTML = `<tr><td colspan="5">No suggestions yet.</td></tr>`;
+          countBadge.textContent = "0 records";
+          return;
+        }
+
+        snapshot.forEach(child => {
+          const s = child.val();
+          count++;
+
+          // Support old and new format
+          const school = s.school || "-";
+          const teacher = s.teacher || s.name || "-";
+          const tool = s.tool || "-";
+          const improvement = s.improvement || s.suggestion || "-";
+          const time = s.time ? formatDate(s.time) : "-";
+
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${school}</td>
+            <td>${teacher}</td>
+            <td>${tool}</td>
+            <td>${improvement}</td>
+            <td>${time}</td>
+          `;
+          tableBody.appendChild(tr);
+        });
+
+        countBadge.textContent = count + " records";
+      }, error => {
+        tableBody.innerHTML = `<tr><td colspan="5">Error loading data.</td></tr>`;
+        console.error("Firebase read error:", error);
+      });
+    }
+
+    loadSuggestions();
+  </script>
+</body>
+</html>
