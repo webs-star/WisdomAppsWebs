@@ -609,11 +609,6 @@ footer.site-footer{
 
 
 
-.join-btn-green:hover { background:#049C58 !important; }
-.join-btn-blue:hover { background:#1E56B9 !important; }
-
-
-
 .ft { color:#fff;text-decoration:none;font-size:15px; }
   .ft:hover { text-decoration:underline; }
 
@@ -975,7 +970,7 @@ footer.site-footer{
   color: #fff;
   background: 
     linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url("https://cdn.pixabay.com/photo/2020/03/03/04/52/pill-4897529_640.jpg");
+    url("https://res.cloudinary.com/dwvt4e9o2/image/upload/v1778343589/shanzu7_hvdyjo.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1175,124 +1170,6 @@ footer.site-footer{
 
 
 
-/* ============================================= */
-/* JOIN PAGE — NO HEADER OVERLAP (NO JS VERSION) */
-/* ============================================= */
-
-/* The exact height of your header */
-:root {
-  --header-height: 170px; /* ← change this to match your real header height */
-}
-
-#joinPage {
-  position: relative;
-  display: none;
-
-  /* Push ENTIRE join page BELOW header */
-  margin-top: var(--header-height);
-}
-
-/* container with drawings + overlay */
-.join-bg-box {
-  position: relative;
-  width: 100%;
-  min-height: calc(100vh - var(--header-height));
-  overflow: hidden;
-}
-
-/* background SVG drawings */
-.join-bg-svg {
-  position: absolute;
-  top: 0; 
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150%;
-  height: auto;
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* readability overlay */
-.join-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.92));
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* content wrapper */
-.join-wrapper {
-  position: relative;
-  z-index: 3;
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 36px 22px 80px;
-}
-
-/* typography */
-.join-title {
-  font-size: 28px;
-  margin: 6px 0 6px;
-  color: #0c2856;
-  font-weight: 700;
-  text-align: center;
-}
-
-.join-sub {
-  color: #334155;
-  text-align: center;
-  margin-bottom: 16px;
-}
-
-/* card styling */
-.join-card {
-  background: rgba(255,255,255,0.95);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(12,40,86,0.08);
-  margin-bottom: 18px;
-  border: 1px solid rgba(12,40,86,0.04);
-}
-
-/* inputs and buttons */
-.join-input {
-  width: 100%;
-  padding: 12px 14px;
-  margin: 10px 0;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-}
-
-.join-btn {
-  width: 100%;
-  padding: 12px;
-  margin-top: 8px;
-  border-radius: 10px;
-  background: #0C2856;
-  color: white;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-}
-
-.join-btn.alt {
-  background: #F5C22D;
-  color: #0c2856;
-}
-
-.google-btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  justify-content: center;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-  background: white;
-  cursor: pointer;
-}
 
 /* floating home button */
 .floating-home-btn {
@@ -1322,56 +1199,9 @@ footer.site-footer{
 
 
 
-.google-btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 10px 18px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.google-btn img.google-icon {
-  width: 88px;
-  height: 88px;
-}
-
-
-
-
-
 
 
   
-.lang-dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.lang-menu {
-    position: absolute;
-    display: none;
-    background: white;
-    border: 1px solid #ccc;
-    padding: 6px 0;
-    border-radius: 6px;
-    min-width: 120px;
-    z-index: 99;
-}
-
-.lang-menu a {
-    display: block;
-    padding: 8px 12px;
-    text-decoration: none;
-    color: #333;
-}
-
-.lang-menu a:hover {
-    background: #f2f2f2;
-}
-
 
 .nav-actions{
   display:flex;
