@@ -1,0 +1,2059 @@
+
+<!doctype html> 
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Primary SEO Title -->
+  <title>Shanzu Senior School | Mixed Day Secondary School in Mombasa Kenya | CBC & ICT Integration</title>
+
+  <!-- SEO Meta Description (important for Google search results) -->
+  <meta name="description" content="Shanzu Senior School is a mixed day secondary school located in Mombasa County, Kenya. We offer CBC curriculum with STEM and Social Sciences pathways, ICT integration in classrooms, modern assessments, and holistic student development." />
+
+  <!-- Keywords (helps search indexing) -->
+  <meta name="keywords" content="Shanzu Senior School, Shanzu Secondary School, Mombasa schools, CBC school Kenya, ICT integration schools Kenya, STEM education Kenya, Social Sciences pathway, mixed day secondary school Mombasa, Shanzu school admission, Kenya secondary schools" />
+
+  <!-- Author -->
+  <meta name="author" content="Shanzu Senior School" />
+
+  <!-- Theme Color (mobile browser styling) -->
+  <meta name="theme-color" content="#0C2856" />
+
+  <!-- Open Graph (for WhatsApp, Facebook, etc.) -->
+  <meta property="og:title" content="Shanzu Senior School | Mombasa Kenya" />
+  <meta property="og:description" content="A mixed day secondary school offering CBC education with ICT integration, STEM and Social Sciences pathways." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1773573305/schoollogo1_rnpce8.jpg" />
+  <meta property="og:url" content="https://shanzuseniorschool.ac.ke" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1773573305/schoollogo1_rnpce8.jpg" type="image/jpg">
+
+
+  
+<style>
+
+:root{ 
+  --blue:#0b61b6;
+  --yellow:#f5c400;
+  --purple:#7a2fa6;
+  --utility-height:32px;
+  --nav-height:84px;
+  --side-nav-height:48px;
+  --max-width:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  height:100%;
+  font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+  color:#222;
+  line-height:1.35;
+}
+
+/* Top utility nav */
+.top-nav {
+  position:fixed;
+  top:0; right:0; left:0;
+  height:var(--utility-height);
+  background:rgba(255,255,255,0.72);
+  backdrop-filter: blur(12px);
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  padding:0 18px;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  z-index:100;
+  font-size:14px;
+  gap:16px;
+}
+.top-nav a{
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
+}
+.top-nav a:hover{ text-decoration:underline }
+
+/* Fixed header */
+.site-header{
+  position:fixed;
+  top:var(--utility-height);
+  left:0; right:0;
+  height:var(--nav-height);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(255,255,255,0.72);
+  backdrop-filter: blur(12px);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  z-index:95;
+  padding:0 18px;
+}
+
+/* Logo + NGO name */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:220px;
+}
+.brand img{ height:76px; width:auto; display:block; }
+
+
+.brand h1 {
+  font-size:30px;
+  letter-spacing:0.2px;
+  color:#222;
+  font-weight:700;
+  white-space: nowrap;   /* <<< KEEP NAME ON ONE LINE */
+}
+
+
+/* Horizontal nav */
+.side-nav-container{
+  position:fixed;
+  top: calc(var(--utility-height) + var(--nav-height));
+  left:0;
+  width:100%;
+  height:var(--side-nav-height);
+  background:rgba(255,255,255,0.72);
+  backdrop-filter: blur(12px);
+  border-top:1px solid rgba(0,0,0,0.06);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  display:flex;
+  align-items:center;
+  padding:0 18px;
+  z-index:85;
+}
+
+.side-nav{
+  display:flex;
+  gap:16px;
+}
+
+.side-nav a{
+  text-decoration:none;
+  font-weight:600;
+  padding:12px 18px;
+  border-radius:6px;
+  font-size:1.3rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.side-nav a:nth-of-type(1){ color:#0b61b6; }
+.side-nav a:nth-of-type(2){ color:#7a2fa6; }
+.side-nav a:nth-of-type(3){ color:#f5c400; }
+.side-nav a:nth-of-type(4){ color:#e94e77; }
+
+.side-nav a:hover{
+  background:rgba(0,0,0,0.08);
+  color:#111;
+}
+
+/* Join & Donate buttons */
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.btn {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 18px;
+  border-radius:8px;
+  font-weight:700;
+  text-decoration:none;
+  cursor:pointer;
+  border:none;
+}
+.btn-join{
+  background:var(--blue);
+  color:#fff;
+}
+.btn-donate{
+  background:var(--yellow);
+  color:#111;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* HERO WRAP */
+.hero-wrap {
+  position:relative;
+  height: calc(100vh - var(--utility-height) - var(--nav-height) - var(--side-nav-height));
+  margin-top: calc(var(--utility-height) + var(--nav-height) + var(--side-nav-height));
+  overflow:hidden;
+}
+
+
+
+.hero-slider {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  z-index:0;
+}
+
+
+.hero-slide {
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  animation:fade 25s infinite;
+}
+
+/* Different animation delays for each slide */
+.slide1 { animation-delay:0s; }
+.slide2 { animation-delay:5s; }
+.slide3 { animation-delay:10s; }
+.slide4 { animation-delay:15s; }
+.slide5 { animation-delay:20s; }
+
+/* Fade-in-out animation */
+@keyframes fade {
+  0% { opacity:0; transform:scale(1.1) rotate(0deg);}
+  10% { opacity:1; transform:scale(1) rotate(0deg);}
+  20% { opacity:1; transform:scale(1) rotate(0deg);}
+  30% { opacity:0; transform:scale(1.05) rotate(2deg);}
+  100% { opacity:0;}
+}
+
+/* Optional: add different effects for each slide */
+.slide1 { animation-name:fade; }
+.slide2 { animation-name:fade-rotate; }
+.slide3 { animation-name:fade-zoom; }
+.slide4 { animation-name:fade-slide; }
+.slide5 { animation-name:fade-flip; }
+
+@keyframes fade-rotate {
+  0%,30%{ opacity:0; transform:rotate(-5deg);}
+  10%,20%{ opacity:1; transform:rotate(0deg);}
+  100%{ opacity:0; transform:rotate(5deg);}
+}
+
+@keyframes fade-zoom {
+  0%,30%{ opacity:0; transform:scale(1.2);}
+  10%,20%{ opacity:1; transform:scale(1);}
+  100%{ opacity:0; transform:scale(1.1);}
+}
+
+@keyframes fade-slide {
+  0%,30%{ opacity:0; transform:translateX(-100px);}
+  10%,20%{ opacity:1; transform:translateX(0);}
+  100%{ opacity:0; transform:translateX(100px);}
+}
+
+@keyframes fade-flip {
+  0%,30%{ opacity:0; transform:rotateY(90deg);}
+  10%,20%{ opacity:1; transform:rotateY(0);}
+  100%{ opacity:0; transform:rotateY(-90deg);}
+}
+
+
+
+
+
+
+
+
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.45));
+  z-index:1;
+}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:28px;
+}
+.hero-content{
+  max-width:1200px;
+  width:100%;
+  color:#fff;
+}
+.hero-huge{
+  font-weight:800;
+  font-size:clamp(34px, 7vw, 64px);
+  line-height:0.98;
+  letter-spacing:-1px;
+  margin-bottom:18px;
+  text-shadow:0 10px 30px rgba(0,0,0,0.45);
+}
+.hero-sub{
+  display:block;
+  font-weight:800;
+  font-size:clamp(20px, 3.5vw, 34px);
+  color:var(--yellow);
+  margin-bottom:22px;
+  text-shadow:0 6px 20px rgba(0,0,0,0.35);
+}
+.hero-ctas{
+  margin-top:8px;
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.hero-ctas .cta{
+  padding:14px 24px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:16px;
+  text-decoration:none;
+  display:inline-block;
+}
+.cta-primary{ background:var(--blue); color:#fff }
+.cta-outline{ background:rgba(255,255,255,0.12); color:#fff; border:1px solid rgba(255,255,255,0.14) }
+
+footer.site-footer{
+  background:#fafafa;
+  padding:36px 18px;
+  border-top:1px solid rgba(0,0,0,0.05);
+  text-align:center;
+  color:#444;
+  font-size:14px;
+}
+
+
+@media (max-width:520px) {
+  .hero-huge {
+    font-size: 28px;
+  }
+  .hero-sub {
+    font-size: 18px;
+  }
+
+}
+
+.hero-wrap {
+  position:relative;
+  height: calc(100vh - var(--utility-height) - var(--nav-height) - var(--side-nav-height));
+  margin-top: calc(var(--utility-height) + var(--nav-height) + var(--side-nav-height));
+  overflow:hidden;
+  z-index:0;
+}
+
+
+
+.impact-section {
+  padding:80px 18px;
+  background:linear-gradient(180deg, #f0f8ff 0%, #e6f2ff 100%);
+  text-align:center;
+}
+
+.impact-container {
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.impact-title {
+  font-size:clamp(28px,5vw,42px);
+  font-weight:800;
+  color:var(--blue);
+  margin-bottom:40px;
+}
+
+.impact-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:32px;
+  justify-items:center;
+}
+
+.impact-card {
+  padding:28px 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color:#fff;
+  font-weight:600;
+}
+
+/* Different shapes and backgrounds for each card */
+.impact-card:nth-child(1) {
+  background:#0b61b6;
+  border-radius:50% 20% 50% 20%;
+  box-shadow:0 6px 18px rgba(11,97,182,0.3);
+}
+.impact-card:nth-child(2) {
+  background:#f5c400;
+  border-radius:20% 50% 20% 50%;
+  color:#111;
+  box-shadow:0 6px 18px rgba(245,196,0,0.3);
+}
+.impact-card:nth-child(3) {
+  background:#7a2fa6;
+  border-radius:15% 15% 50% 50%;
+  box-shadow:0 6px 18px rgba(122,47,166,0.3);
+}
+.impact-card:nth-child(4) {
+  background:#e94e77;
+  border-radius:40% 10% 40% 10%;
+  box-shadow:0 6px 18px rgba(233,78,119,0.3);
+}
+
+/* Hover effects */
+.impact-card:hover {
+  transform:translateY(-10px) rotate(-2deg);
+  box-shadow:0 12px 24px rgba(0,0,0,0.2);
+}
+
+/* Card content */
+.impact-card h3 {
+  font-size:36px;
+  margin-bottom:12px;
+}
+
+.impact-card p {
+  font-size:18px;
+}
+
+
+.about-section {
+  padding:100px 18px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: 
+    rgba(255, 255, 255, 0.3), /* subtle white overlay to lighten image */
+    url('https://cdn.pixabay.com/photo/2016/11/29/03/53/technology-1868563_1280.jpg') center/cover no-repeat;
+  color:#111; /* darker text for contrast */
+  position:relative;
+  overflow:hidden;
+  border-radius:30px;
+}
+
+
+
+.about-section::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.35); /* dark overlay for text readability */
+  z-index:1;
+}
+
+.about-container {
+  display:flex;
+  max-width:1200px;
+  gap:60px;
+  align-items:center;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:2; /* bring above overlay */
+}
+
+.about-text {
+  flex:1;
+  min-width:300px;
+}
+
+.about-title {
+  font-size:clamp(32px,6vw,48px);
+  font-weight:800;
+  color:#fff;
+  margin-bottom:20px;
+}
+
+.about-subtitle {
+  font-size:20px;
+  margin-bottom:30px;
+  line-height:1.5;
+}
+
+.btn-learn {
+  display:inline-block;
+  padding:14px 28px;
+  background:#f5c400;
+  color:#111;
+  font-weight:700;
+  border-radius:10px;
+  text-decoration:none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-learn:hover {
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Star-shaped image with smaller points */
+.about-image {
+  flex:1;
+  min-width:300px;
+  clip-path: polygon(
+    50% 0%, 55% 10%, 60% 0%, 65% 10%, 
+    70% 0%, 75% 10%, 80% 0%, 85% 10%, 
+    90% 0%, 95% 10%, 100% 50%, 95% 90%, 
+    90% 100%, 85% 90%, 80% 100%, 75% 90%, 
+    70% 100%, 65% 90%, 60% 100%, 55% 90%, 
+    50% 100%, 45% 90%, 40% 100%, 35% 90%, 
+    30% 100%, 25% 90%, 20% 100%, 15% 90%, 
+    10% 100%, 5% 90%, 0% 50%, 5% 10%, 10% 0%, 
+    15% 10%, 20% 0%, 25% 10%, 30% 0%, 35% 10%, 
+    40% 0%, 45% 10%
+  );
+  overflow:hidden;
+  max-height:600px; /* optional max height */
+}
+
+.about-image img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+
+
+
+
+.serve-section {
+  padding:100px 18px;
+  background:#fefefe;
+  position:relative;
+}
+
+.serve-container {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1200px;
+  margin:0 auto;
+  gap:40px;
+  flex-wrap:wrap;
+}
+
+.serve-text {
+  flex:1;
+  min-width:280px;
+}
+
+.serve-title {
+  font-size:clamp(28px,5vw,42px);
+  font-weight:800;
+  color:#0b61b6;
+  margin-bottom:20px;
+}
+
+
+.serve-paragraph {
+  font-size:18px;
+  color:#333;
+  line-height:1.8;
+  text-align:center; /* center text for trapezoid symmetry */
+}
+
+.serve-paragraph .line {
+  display:block;
+  margin:0 auto 12px auto;
+}
+
+/* Smooth 8-shape widths */
+.line1 { max-width:100%; }
+.line2 { max-width:75%; }
+.line3 { max-width:50%; }
+.line4 { max-width:75%; }
+.line5 { max-width:100%; }
+
+
+
+
+.serve-btn {
+  display:inline-block;
+  padding:14px 24px;
+  background:#7a2fa6;
+  color:#fff;
+  font-weight:700;
+  border-radius:12px;
+  text-decoration:none;
+  margin-top:20px;
+}
+
+.serve-image {
+  flex:1;
+  min-width:280px;
+  display:flex;
+  justify-content:center;
+  position:relative;
+}
+
+.serve-image img {
+  width:100%;
+  max-width:500px;
+  height:auto;
+  object-fit:cover;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%); /* trapezium shape */
+}
+
+
+
+
+.join-btn-green:hover { background:#049C58 !important; }
+.join-btn-blue:hover { background:#1E56B9 !important; }
+
+
+
+.ft { color:#fff;text-decoration:none;font-size:15px; }
+  .ft:hover { text-decoration:underline; }
+
+/* HIDE MOBILE MENU BUTTON ON DESKTOP */
+@media (min-width:881px) {
+  .dot-btn {
+    display: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* ================================
+   MOBILE FIX – FOR SCREENS < 880px
+   ================================ */
+@media (max-width: 880px) {
+
+  /* Hide desktop nav + desktop side menu */
+  .side-nav-container {
+    display: none !important;
+  }
+
+  /* Make header auto-height on phone */
+  .site-header {
+    height: auto;
+    padding: 12px 16px;
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+
+  /* Brand row (logo + name + burger) */
+  .brand {
+    width: 100%;
+    justify-content: space-between;
+    min-width: 0;
+  }
+
+  .brand img {
+    height: 58px;       /* reduce logo size on phone */
+  }
+
+  .brand h1 {
+    font-size: 24px;
+    line-height: 1.1;
+  }
+
+  /* Mobile menu (burger button) */
+  .dot-btn {
+    display: block !important;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #0b61b6;
+    color: #fff;
+    font-size: 26px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dots {
+    position: relative;
+    top: -2px;
+  }
+
+  /* Move Join + Donate below logo on phone */
+  .nav-actions {
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  /* Adjust hero so it doesn't get covered */
+  .hero-wrap {
+    margin-top: calc(var(--utility-height) + 160px) !important;
+    height: calc(100vh - var(--utility-height) - 160px) !important;
+  }
+
+  /* Reduce hero text sizes */
+  .hero-huge {
+    font-size: 26px !important;
+  }
+  .hero-sub {
+    font-size: 16px !important;
+  }
+
+  /* Utility nav stays visible but becomes compact */
+  .top-nav {
+    padding: 0 12px;
+    gap: 10px;
+    font-size: 12px;
+  }
+
+  /* Mobile menu panel layout */
+  .mobile-panel {
+    position: fixed;
+    top: calc(var(--utility-height) + 70px);
+    right: 0;
+    width: 85%;
+    max-width: 320px;
+    background: white;
+    height: calc(100% - var(--utility-height) - 70px);
+    box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+    z-index: 200;
+  }
+
+  .mobile-panel.open {
+    transform: translateX(0);
+  }
+
+  .panel-inner a {
+    display: block;
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+    font-size: 18px;
+    text-decoration: none;
+    color: #333;
+  }
+}
+
+
+@media (max-width: 880px) {
+  .top-nav {
+    display: none !important;
+  }
+}
+
+
+@media (max-width: 880px) {
+
+  /* Mobile menu links (inside 3-dashes menu) */
+  .mobile-panel a {
+    display: block;
+    padding: 16px 20px;
+    font-size: 18px;
+
+    background: transparent !important;  /* CLEAR */
+    color: #0b61b6 !important;           /* BLUE TEXT */
+
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  /* Optional hover */
+  .mobile-panel a:hover {
+    background: rgba(0, 0, 0, 0.05);     /* light tap feedback */
+  }
+}
+
+
+
+.about-fullpage {
+  padding: 0;                     /* full page, no outer margin */
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.about-wrapper {
+  max-width: none;                /* remove width restriction */
+  margin: 0;
+  padding: 0;
+}
+
+.about-main-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #0C2856;
+  text-align: center;
+  margin: 0;                      /* remove big top margin */
+  padding: 110px 20px 45px;       /* space inside instead */
+  letter-spacing: -0.5px;
+}
+
+/* ===============================
+   ABOUT — IMAGE BLOCK LAYOUT
+================================*/
+.about-block {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  padding: 80px 40px;             /* inner spacing only */
+  margin: 0;                      /* remove outer margins */
+  width: 100%;                    /* full width */
+  max-width: 100%;                /* force full page */
+
+  border-bottom: 1px solid #e4e7ec;
+  border-radius: 0;               /* no rounded edges (full page) */
+  box-sizing: border-box;
+}
+
+.about-block:last-child {
+  border-bottom: none;
+}
+
+/* Text */
+.about-text h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #134d9c;
+  margin-bottom: 12px;
+}
+
+.about-text p {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #444;
+}
+
+/* IMAGE SHAPES */
+.about-img {
+  width: 320px;
+  height: 320px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-img.circle {
+  border-radius: 80%;
+}
+
+.about-img.trapezium {
+  clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
+}
+
+.about-img.round-diamond {
+  clip-path: polygon(
+    50% 0%, 85% 25%, 100% 50%,
+    85% 75%, 50% 100%, 15% 75%,
+    0% 50%, 15% 25%
+  );
+  border-radius: 20px;
+}
+
+
+
+
+.about-img.blob {
+  border-radius: 37% 63% 66% 34% / 44% 38% 62% 56%;
+}
+
+/* ALTERNATE BLOCKS */
+.about-block.alt-left {
+  flex-direction: row;
+}
+
+.about-block.alt-right {
+  flex-direction: row-reverse;
+}
+
+.about-block.alt-top,
+.about-block.alt-bottom {
+  flex-direction: column;
+  text-align: center;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 780px) {
+  .about-block {
+    flex-direction: column !important;
+    text-align: center;
+    padding: 60px 25px;           /* mobile-friendly */
+  }
+
+  .about-img {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+/* BACKGROUNDS */
+.bg-blue {
+  background: linear-gradient(135deg, #e7f0ff, #f4f8ff);
+}
+
+.bg-grey {
+  background: #f5f5f5 url('https://www.transparenttextures.com/patterns/cubes.png');
+}
+
+.bg-whitecard {
+  background: #ffffff;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+  border-radius: 14px;
+}
+
+.bg-beige {
+  background: #faf5ef;
+  border-left: 6px solid #d8c4a8;
+  border-radius: 10px;
+}
+
+
+.about-fullpage {
+  padding-top: 40px;
+}
+
+
+
+
+
+
+
+.floating-home-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 58px;
+  height: 58px;
+
+  background: #134d9c;
+  border-radius: 50%;
+  border: none;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.floating-home-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+
+.floating-home-btn svg {
+  pointer-events: none;
+}
+
+  
+/* Hero Background */
+.focus-hero {
+  width: 100%;
+  padding: 120px 20px;
+  text-align: center;
+  color: #fff;
+  background: 
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("https://cdn.pixabay.com/photo/2020/03/03/04/52/pill-4897529_640.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0 0 20px 20px;
+}
+
+.focus-hero h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.focus-hero p {
+  font-size: 1.2rem;
+  max-width: 650px;
+  margin: auto;
+  opacity: 0.9;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .focus-hero {
+    padding: 90px 20px;
+  }
+  .focus-hero h2 {
+    font-size: 2rem;
+  }
+  .focus-hero p {
+    font-size: 1rem;
+  }
+}
+
+
+
+
+
+
+
+/* ===========================
+   GRID LAYOUT
+=========================== */
+.focus-grid {
+  max-width: 1250px;
+  margin: 50px auto;
+  padding: 0 20px;
+  display: grid;
+  gap: 35px;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+
+/* ===========================
+   CARD DESIGN
+=========================== */
+.focus-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+  padding-bottom: 25px;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.focus-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+/* CARD TOP */
+.focus-card-top {
+  padding: 45px 20px 85px;  /* Increased bottom padding so ribbon never overlaps text */
+  position: relative;
+  text-align: center;
+}
+
+.focus-icon {
+  font-size: 42px;
+  color: white;
+  margin-bottom: 10px;
+}
+/* Ribbon (title inside ribbon) */
+.focus-ribbon {
+  position: absolute;
+  bottom: -22px;            /* Move slightly lower so it doesn't touch paragraph */
+  left: 0;
+  padding: 10px 25px;
+  font-weight: 700;
+  background: #fdd835;
+  color: #000;
+  font-size: 15px;
+  clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+}
+
+/* Headings + Text */
+.focus-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 25px 20px 10px;
+}
+/* Paragraph fix (push text down from ribbon) */
+.focus-card p {
+  margin: 40px 20px 0;   /* Increased top margin so no text is cut */
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* ===========================
+   GRADIENT BACKGROUNDS
+=========================== */
+.education-bg {
+  background: linear-gradient(135deg, #ffd75a, #e9a300);
+}
+
+.environment-bg {
+  background: linear-gradient(135deg, #4dcc5b, #009c49);
+}
+
+.health-bg {
+  background: linear-gradient(135deg, #5cb7ff, #0066d6);
+}
+
+.humanitarian-bg {
+  background: linear-gradient(135deg, #d998ff, #7b2ab8);
+}
+
+.youth-bg {
+  background: linear-gradient(135deg, #ff7f60, #cc3300);
+}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp .8s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   FLOATING HOME BUTTON
+=========================== */
+.floating-home-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: #0C2856;
+  border: none;
+  padding: 14px 16px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 9999;
+  transition: background .2s;
+}
+
+.floating-home-btn:hover {
+  background: #134d9c;
+}
+
+
+
+.focus-icon i {
+  font-size: 46px;
+  padding: 18px;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.85);
+}
+
+#focusPage {
+    position: relative;
+    padding-top: calc(var(--header-height, 170px) + 20px);
+}
+/* Learn more button */
+.focus-btn {
+  display: inline-block;
+  margin: 20px 20px 0;
+  padding: 10px 18px;
+  background: #0C2856;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: .2s;
+}
+
+.focus-btn:hover {
+  background: #134d9c;
+}
+
+
+
+
+
+/* ============================================= */
+/* JOIN PAGE — NO HEADER OVERLAP (NO JS VERSION) */
+/* ============================================= */
+
+/* The exact height of your header */
+:root {
+  --header-height: 170px; /* ← change this to match your real header height */
+}
+
+#joinPage {
+  position: relative;
+  display: none;
+
+  /* Push ENTIRE join page BELOW header */
+  margin-top: var(--header-height);
+}
+
+/* container with drawings + overlay */
+.join-bg-box {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - var(--header-height));
+  overflow: hidden;
+}
+
+/* background SVG drawings */
+.join-bg-svg {
+  position: absolute;
+  top: 0; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* readability overlay */
+.join-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.92));
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* content wrapper */
+.join-wrapper {
+  position: relative;
+  z-index: 3;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 36px 22px 80px;
+}
+
+/* typography */
+.join-title {
+  font-size: 28px;
+  margin: 6px 0 6px;
+  color: #0c2856;
+  font-weight: 700;
+  text-align: center;
+}
+
+.join-sub {
+  color: #334155;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* card styling */
+.join-card {
+  background: rgba(255,255,255,0.95);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(12,40,86,0.08);
+  margin-bottom: 18px;
+  border: 1px solid rgba(12,40,86,0.04);
+}
+
+/* inputs and buttons */
+.join-input {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+}
+
+.join-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border-radius: 10px;
+  background: #0C2856;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.join-btn.alt {
+  background: #F5C22D;
+  color: #0c2856;
+}
+
+.google-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: white;
+  cursor: pointer;
+}
+
+/* floating home button */
+.floating-home-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 99999;
+  border-radius: 16px;
+  padding: 10px 12px;
+  background: #0C2856;
+  border: none;
+  color: white;
+}
+
+/* responsive adjustments */
+@media (max-width: 720px) {
+  .join-bg-svg {
+    width: 200%;
+  }
+  .join-wrapper {
+    padding: 28px 16px 60px;
+  }
+  .join-title {
+    font-size: 22px;
+  }
+}
+
+
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.google-btn img.google-icon {
+  width: 88px;
+  height: 88px;
+}
+
+
+
+
+
+
+
+  
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.lang-menu {
+    position: absolute;
+    display: none;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 6px 0;
+    border-radius: 6px;
+    min-width: 120px;
+    z-index: 99;
+}
+
+.lang-menu a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+}
+
+.lang-menu a:hover {
+    background: #f2f2f2;
+}
+
+
+.nav-actions{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.school-contact{
+  font-weight:bold;
+  font-size:15px;
+  padding:4px 0;
+}
+
+.address{
+  color:#003366;
+}
+
+.phone{
+  color:#f4b400;
+}
+
+</style>
+</head>
+<body>
+
+
+<!-- Main Header -->
+<header>
+  <div class="site-header" role="banner">
+
+    <!-- Row 1: Logo + Two-line School Name -->
+    <div class="brand">
+      <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1773573305/schoollogo1_rnpce8.jpg" alt="Shimo La Tewa School Logo" />
+      <h1>
+  Shanzu Senior School<br>
+  Mombasa, Kenya
+</h1>
+
+      <!-- MENU BUTTON MOVED HERE -->
+      <button class="dot-btn" id="btnMenu" aria-haspopup="true" aria-controls="mobileMenu" aria-expanded="false">
+        <span class="dots">≡</span>
+      </button>
+    </div>
+
+   
+   
+   
+   <!-- Row 2: Contact and Join -->
+<div class="nav-actions">
+  
+  <span class="school-contact address">
+    P.O. Box 10154-80101, Bamburi
+  </span>
+
+  <span class="school-contact phone">
+    Phone: 0720856955
+  </span>
+
+</div>
+   
+
+  </div>
+
+
+
+<!-- Desktop Side Navigation -->
+<div class="side-nav-container">
+  <nav class="side-nav" role="navigation" aria-label="Main navigation">
+
+    <a href="#" data-key="about-us-nav">About Shanzu Senior School</a>
+
+    <!-- Direct external link -->
+    <a href="https://elimuconnect.github.io/ELIMUCONNECT2/schoolict" target="_blank" rel="noopener">
+      ICT Integration, CBC Assessments & Reporting System
+    </a>
+
+  </nav>
+</div>
+
+
+
+<!-- Mobile Menu Panel -->
+<div id="mobileMenu" class="mobile-panel" aria-hidden="true" role="menu">
+  <div class="panel-inner" id="mobileMenuInner"></div>
+</div>
+  
+</header>
+
+<main>
+  <section class="hero-wrap" aria-labelledby="hero-heading">
+    <div class="hero-slider">
+      <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1778343589/shanzu7_hvdyjo.jpg" class="hero-slide slide1" alt="Slide 1">
+	   <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1778344310/WhatsApp_Image_2026-05-09_at_7.30.32_PM_l0tlem.jpg" class="hero-slide slide2" alt="Slide 2">
+    
+      <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1778343589/shanzu2_ceczje.jpg" class="hero-slide slide3" alt="Slide 3">
+      <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1778343588/shanzu8_xf3f74.jpg" class="hero-slide slide4" alt="Slide 4">
+     
+    </div>
+
+    <div class="hero-overlay" aria-hidden="true"></div>
+<div class="hero-inner">
+  <div class="hero-content">
+    
+    <h2 id="hero-heading" class="hero-huge">
+      Shanzu Senior School. Empowering Minds, Shaping the Future.
+    </h2>
+
+    <span class="hero-sub">
+      A CBC senior school in Mombasa County integrating ICT in classrooms to promote digital learning, innovation, and holistic student development.
+    </span>
+
+        <div class="hero-ctas" role="group" aria-label="Primary calls to action">
+          <a class="cta cta-primary" href="#" data-key="focus-nav">Our Departments</a>
+          <a href="#" class="cta cta-outline" data-key="about-us-nav">Our Motto,Vision & Mission</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
+
+
+<section class="impact-section" aria-labelledby="impact-heading">
+  <div class="impact-container">
+    
+    <h2 id="impact-heading" class="impact-title">
+      Shanzu Senior School at a Glance
+    </h2>
+
+    <div class="impact-grid">
+
+      <div class="impact-card">
+         <h3>2025</h3>
+        <p>School Established</p>
+
+         <h3>230</h3>
+        <p>Learners</p>
+      </div>
+
+      <div class="impact-card">
+        <h3>3</h3>
+        <p>Non-Teaching Staffs</p>
+
+        <h3>8</h3>
+        <p>Classes</p>
+      </div>
+
+      <div class="impact-card">
+        <h3>2</h3>
+        <p>Laboratories</p>
+      </div>
+
+      <div class="impact-card">
+        <h3>14</h3>
+        <p>Teachers</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="serve-section" aria-labelledby="serve-heading">
+  <div class="serve-container">
+    
+    <div class="serve-text">
+      <h2 id="serve-heading" class="serve-title">Shaping Academic Excellence</h2>
+
+      <p class="serve-paragraph">
+        <span class="line line1">
+          Shanzu Senior School is committed to quality education under the CBC system, focusing on academic excellence, discipline, and competence-based learning.
+        </span>
+        <span class="line line2">
+          We integrate ICT in classrooms to enhance digital learning, creativity, and innovation among students.
+        </span>
+        <span class="line line3">
+          Our teaching approach supports holistic development, preparing learners for higher education and future careers.
+        </span>
+        <span class="line line4">
+          We also promote strong values, leadership, and responsibility to build disciplined and responsible citizens.
+        </span>
+      </p>
+
+      <a href="#" class="serve-btn" data-key="focus-nav">Our Departments</a>
+    </div>
+
+    <div class="serve-image">
+      <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1778344310/WhatsApp_Image_2026-05-09_at_7.30.10_PM_dkz6l7.jpg" alt="Shanzu Senior School learning environment">
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<section style="background:#0F2B56;padding:60px 0;color:#fff;font-family:Arial, sans-serif;">
+  <div style="max-width:1200px;margin:auto;padding:0 20px;">
+
+    <!-- Heading -->
+    <h2 style="font-size:40px;margin:0 0 10px;font-weight:700;">Join us.</h2>
+    <div style="width:80px;height:4px;background:#F5C22D;margin-bottom:45px;"></div>
+
+    <!-- Grid container -->
+    <div style="
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+      gap:30px;
+    ">
+
+      <!-- Card 1 -->
+      <div style="background:#fff;border-radius:6px;overflow:hidden;display:flex;flex-direction:column;">
+         <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1778343589/shanzu7_hvdyjo.jpg" alt="" style="width:100%;display:block;">
+        <a href="#" class="join-btn-green" style="
+          display:block;
+          padding:20px;
+          text-align:left;
+          color:#fff;
+          font-size:20px;
+          font-weight:600;
+          text-decoration:none;
+          clip-path:polygon(0 0,100% 0,88% 100%,0% 100%);
+          background:#04C26A;
+          transition:0.3s;
+          " data-key="focus-nav">Our Departments</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div style="background:#fff;border-radius:6px;overflow:hidden;display:flex;flex-direction:column;">
+        <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1778343588/shanzu8_xf3f74.jpg" alt="" style="width:100%;display:block;">
+        <a href="#" class="join-btn-blue" style="
+          display:block;
+          padding:20px;
+          text-align:left;
+          color:#fff;
+          font-size:20px;
+          font-weight:600;
+          text-decoration:none;
+          clip-path:polygon(0 0,100% 0,88% 100%,0% 100%);
+          background:#2C70E4;
+          transition:0.3s;
+      " data-key="about-us-nav">Our Motto,Vision & Mission</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section style="padding:60px 0;background:#F8F8F8;font-family:Arial, sans-serif;">
+  <div style="max-width:1200px;margin:auto;padding:0 20px;">
+
+    <!-- Heading -->
+    <h2 style="font-size:36px;margin:0 0 10px;font-weight:700;color:#111;">
+      Stay Connected With Shanzu Senior School
+    </h2>
+    <div style="width:70px;height:4px;background:#F5C22D;margin-bottom:25px;"></div>
+
+    <!-- Subtitle -->
+    <p style="font-size:18px;color:#333;max-width:650px;line-height:1.6;">
+      Follow Shanzu Senior School online for updates on academics, ICT integration in classrooms, student activities, and school events. Stay informed and connected with our learning community.
+      <a href="#" style="color:#2C70E4;text-decoration:none;font-weight:600;">
+        official channels.
+      </a>
+    </p>
+
+    <!-- Icons Row -->
+    <div style="display:flex;gap:40px;align-items:center;flex-wrap:wrap;margin-top:40px;">
+
+      <!-- Facebook -->
+      <div style="text-align:center;">
+        <a href="https://facebook.com/shanzuseniorschool" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="55">
+        </a>
+        <p style="font-size:13px;color:#333;margin-top:10px;">
+          Shanzu Senior School
+        </p>
+      </div>
+
+      <!-- Instagram -->
+      <div style="text-align:center;">
+        <a href="https://instagram.com/shanzuseniorschool" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="55">
+        </a>
+        <p style="font-size:13px;color:#333;margin-top:10px;">
+          Shanzu Senior School
+        </p>
+      </div>
+
+      <!-- X / Twitter -->
+      <div style="text-align:center;">
+        <a href="https://x.com/shanzuseniorschool" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968958.png" width="55">
+        </a>
+        <p style="font-size:13px;color:#333;margin-top:10px;">
+          Shanzu Senior School
+        </p>
+      </div>
+
+
+      <!-- YouTube -->
+      <div style="text-align:center;">
+        <a href="https://youtube.com/@shanzuseniorschool" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="55">
+        </a>
+        <p style="font-size:13px;color:#333;margin-top:10px;">
+          Shanzu Senior School
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="aboutPage" class="about-fullpage" style="display:none;">
+  <div class="about-wrapper">
+
+    <h2 class="about-main-title">About the School</h2>
+
+    <!-- Motto -->
+    <div style="text-align:center;margin-bottom:25px;">
+      <h3 style="color:#0C2856;margin:0;">Our Motto</h3>
+      <p style="font-size:18px;font-weight:600;color:#333;">
+        Empowering Minds, Shaping the Future
+      </p>
+    </div>
+
+    <!-- Pathways -->
+    <div style="text-align:center;margin-bottom:30px;">
+      <h3 style="color:#0C2856;margin-bottom:8px;">Learning Pathways</h3>
+      <p style="font-size:16px;color:#333;font-weight:500;">
+        We offer two pathways: <b>STEM</b> and <b>Social Sciences</b>
+      </p>
+    </div>
+
+
+ <!-- School Leadership -->
+    <div style="text-align:center;margin-bottom:30px;">
+      <h3 style="color:#0C2856;margin-bottom:8px;">School Leadership</h3>
+      <p style="font-size:16px;color:#333;font-weight:500;">
+        The school is headed by <b>Mr. Tunje</b>
+      </p>
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- Block 1: Who We Are -->
+    <!-- ========================= -->
+    <div class="about-block alt-left bg-blue">
+      <div class="about-img circle">
+        <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1773573305/schoollogo1_rnpce8.jpg" alt="">
+      </div>
+      <div class="about-text">
+        <h3>School Overview</h3>
+        <p>
+          Shanzu Senior School is a mixed day secondary school committed to academic excellence, discipline,
+          and holistic student development. We nurture learners through quality education and ICT integration
+          to prepare them for the modern world.
+        </p>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- Block 2: Mission -->
+    <!-- ========================= -->
+    <div class="about-block alt-right bg-grey">
+      <div class="about-img trapezium">
+        <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1778343588/shanzu8_xf3f74.jpg" alt="">
+      </div>
+      <div class="about-text">
+        <h3>Our Mission</h3>
+        <p>
+          To provide quality education that empowers learners with knowledge, skills, and values needed
+          for academic success, personal growth, and responsible citizenship.
+        </p>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- Block 3: Vision -->
+    <!-- ========================= -->
+    <div class="about-block alt-left bg-whitecard">
+      <div class="about-img round-diamond">
+        <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1778344310/WhatsApp_Image_2026-05-09_at_7.30.10_PM_dkz6l7.jpg" alt="">
+      </div>
+      <div class="about-text">
+        <h3>Our Vision</h3>
+        <p>
+          To be a leading center of excellence in education, producing well-rounded students who are
+          innovative, disciplined, and ready to contribute positively to society.
+        </p>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- Block 4: What We Do -->
+    <!-- ========================= -->
+    <div class="about-block alt-bottom bg-beige">
+      <div class="about-text">
+        <h3>School Programs</h3>
+        <p>
+          We offer a strong academic program supported by ICT integration in classrooms, science and
+          practical learning, sports, and co-curricular activities. We also focus on character building,
+          leadership development, and preparing students for higher education and future careers.
+        </p>
+      </div>
+
+      <div class="about-img blob">
+        <img src="https://res.cloudinary.com/dwvt4e9o2/image/upload/v1778344310/WhatsApp_Image_2026-05-09_at_7.30.32_PM_l0tlem.jpg" alt="">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Floating Home Button -->
+  <button class="floating-home-btn floatHomeBtn" aria-label="Home">
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12l9-9 9 9"/>
+      <path d="M9 21V9h6v12"/>
+    </svg>
+  </button>
+</section>
+
+
+
+
+
+
+<section id="focusPage" class="focus-section" style="display:none;">
+<div class="focus-wrapper" style="font-family:'Poppins', sans-serif;">
+
+  <div class="focus-hero">
+    <h2>School Departments</h2>
+    <p>Supporting academic excellence, discipline, student growth, and ICT integration across all learning areas.</p>
+  </div>
+
+  <div class="focus-grid">
+
+    <!-- MATHS -->
+    <div class="focus-card fade-up">
+      <div class="focus-card-top education-bg">
+        <div class="focus-icon">
+          <i class="fas fa-square-root-variable"></i>
+        </div>
+        <span class="focus-ribbon">Mathematics Department</span>
+      </div>
+      <p>
+        Focuses on developing problem-solving, numerical reasoning, and analytical thinking skills.
+      </p>
+    </div>
+
+    <!-- SOCIAL SCIENCES -->
+    <div class="focus-card fade-up">
+      <div class="focus-card-top environment-bg">
+        <div class="focus-icon">
+          <i class="fas fa-globe-africa"></i>
+        </div>
+        <span class="focus-ribbon">Social Sciences</span>
+      </div>
+      <p>
+        Covers History, Geography, and related subjects that help learners understand society and the world.
+      </p>
+    </div>
+
+    <!-- STEM -->
+    <div class="focus-card fade-up">
+      <div class="focus-card-top health-bg">
+        <div class="focus-icon">
+          <i class="fas fa-microscope"></i>
+        </div>
+        <span class="focus-ribbon">STEM Department</span>
+      </div>
+      <p>
+        Integrates Science, Technology, Engineering, and ICT to promote innovation and practical learning.
+      </p>
+    </div>
+
+    <!-- GUIDANCE & COUNSELLING -->
+    <div class="focus-card fade-up">
+      <div class="focus-card-top humanitarian-bg">
+        <div class="focus-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <span class="focus-ribbon">Guidance & Counselling</span>
+      </div>
+      <p>
+        Supports students' emotional well-being, discipline, career guidance, and personal development.
+      </p>
+    </div>
+
+    <!-- GAMES & SOCIETIES -->
+    <div class="focus-card fade-up">
+      <div class="focus-card-top youth-bg">
+        <div class="focus-icon">
+          <i class="fas fa-futbol"></i>
+        </div>
+        <span class="focus-ribbon">Games & Societies</span>
+      </div>
+      <p>
+        Promotes sports, clubs, and co-curricular activities that build talent, teamwork, and leadership.
+      </p>
+    </div>
+
+    <!-- ACADEMICS -->
+    <div class="focus-card fade-up">
+      <div class="focus-card-top education-bg">
+        <div class="focus-icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <span class="focus-ribbon">Academics Department</span>
+      </div>
+      <p>
+        Oversees curriculum delivery, assessments, and academic performance monitoring.
+        <br><br>
+        <b>Headed by:</b><br>
+        1. Mr Solomon Ndegwa – Assessments<br>
+        2. Mr Phelix Oyieyo– Professional Documents
+      </p>
+    </div>
+
+  </div>
+
+  <button class="floating-home-btn floatHomeBtn" aria-label="Home">
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12l9-9 9 9"/>
+      <path d="M9 21V9h6v12"/>
+    </svg>
+  </button>
+
+</div>
+</section>
+
+
+
+
+
+
+<footer class="site-footer" style="background:#0C2856;color:#fff;font-family:Arial, sans-serif;padding:40px 0;">
+  <div style="max-width:1100px;margin:auto;padding:0 20px;">
+
+    <!-- Contact Only -->
+    <div style="text-align:center;line-height:1.8;">
+
+      <h3 style="color:#F5C22D;margin-bottom:10px;">
+        Shanzu Senior School
+      </h3>
+
+      <p>
+       P.O. Box 10154-80101, Bamburi
+      </p>
+
+      <p>
+        Contact: +254 720856955
+      </p>
+
+    </div>
+
+    <!-- Bottom -->
+    <div style="border-top:1px solid rgba(255,255,255,0.2);margin-top:25px;padding-top:15px;text-align:center;font-size:13px;">
+      © <span id="year"></span> Shanzu Senior School. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</footer>
+
+
+<script>
+// ---------------- MOBILE MENU HANDLER ----------------
+const btnMenu = document.getElementById('btnMenu');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileMenuInner = document.getElementById('mobileMenuInner');
+
+btnMenu.addEventListener('click', () => {
+
+    mobileMenu.classList.toggle('open');
+
+    // Generate content once
+    if (mobileMenuInner.innerHTML.trim() === "") {
+
+        mobileMenuInner.innerHTML = `
+            <a href="#" data-key="about-us-nav">About Us</a>
+            <a href="#" data-key="focus-nav">Our Focus Areas</a>
+            <a href="#" data-key="join-nav">Join Us</a>
+        `;
+
+        // Close menu when any link is clicked
+        const links = mobileMenuInner.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+    }
+});
+
+
+// ---------------- PAGE NAVIGATION ----------------
+document.addEventListener('DOMContentLoaded', () => {
+
+    const aboutPage = document.getElementById("aboutPage");
+    const focusPage = document.getElementById("focusPage");
+  
+    const floatHomeBtns = document.querySelectorAll(".floatHomeBtn");
+
+    function hideAllExceptPage(activePageId) {
+
+        const elements = document.querySelectorAll(
+            "body > *:not(header):not(footer):not(#aboutPage):not(#focusPage):not(#joinPage)"
+        );
+
+        elements.forEach(el => el.style.display = "none");
+
+        aboutPage.style.display = "none";
+        focusPage.style.display = "none";
+       
+        const page = document.getElementById(activePageId);
+        if (page) page.style.display = "block";
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function restoreAll() {
+
+        const elements = document.querySelectorAll(
+            "body > *:not(header):not(footer):not(#aboutPage):not(#focusPage):not(#joinPage)"
+        );
+
+        elements.forEach(el => el.style.display = "");
+
+        aboutPage.style.display = "none";
+        focusPage.style.display = "none";
+        joinPage.style.display = "none";
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    document.addEventListener("click", (e) => {
+
+        const a = e.target.closest("a[data-key]");
+        if (!a) return;
+
+        const key = a.dataset.key;
+
+        if (key === "about-us-nav") {
+            e.preventDefault();
+            hideAllExceptPage("aboutPage");
+        }
+
+        if (key === "focus-nav") {
+            e.preventDefault();
+            hideAllExceptPage("focusPage");
+        }
+
+        if (key === "join-nav") {
+            e.preventDefault();
+            hideAllExceptPage("joinPage");
+        }
+
+        if (key === "home") {
+            e.preventDefault();
+            restoreAll();
+        }
+    });
+
+    // Floating home buttons
+    floatHomeBtns.forEach(btn => {
+        btn.addEventListener("click", restoreAll);
+    });
+
+});
+
+</script>
+
+
+</body>
+</html>
